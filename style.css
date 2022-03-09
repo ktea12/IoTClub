@@ -10,21 +10,43 @@ h1 {
   text-align: center;
 }
 
+.cont {
+  height: 300px;
+  position: relative;
+}
+
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
 .btn {
-  border: none;
-  background-color: transparent;
-  padding: 25px 49px;
-  font-size: 20px;
-  text-align:center;
+  letter-spacing: 5px;
+  word-spacing: 10px;
+  border: 1px;
+  padding: 16px 250px;
+  background-color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 12px;
+  transition-duration: 0.4s;
   cursor: pointer;
-  display: inline-block;
+  box-shadow: 0 3px 5px 5px rgba(0, 0, 0, 0.5);
   }
 
-.btn:hover {background: #0b0b0b80;}
+.btn:hover {
+  color: white;
+  background: #0b0b0b80;
+  box-shadow: 0 3px 5px 5px rgba(102, 51, 153, 0.5);
+  }
 
 body{
   background-image: url(https://i.postimg.cc/QCv4RPPK/Design-Mind-Io-T.gif);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-}
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+      }
