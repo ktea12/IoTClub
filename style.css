@@ -59,3 +59,7 @@ body{
   background-color: rgb(107, 63, 151);
   background-image: linear-gradient(rgb(107, 63, 151), lightblue);
 }
+
+footer{
+  background-color: rgba(192, 192, 192, 0.4) ; text-align: center; color: white ; 
+}
