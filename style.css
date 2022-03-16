@@ -50,3 +50,12 @@ body{
       background-attachment: fixed;
       background-size: cover;
       }
+
+.div1{
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: rgb(107, 63, 151);
+  background-image: linear-gradient(rgb(107, 63, 151), lightblue);
+}
