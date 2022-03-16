@@ -56,6 +56,11 @@ body{
       background-size: cover;
       }
 
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  }
+
 .div1{
   height: 100%;
   margin: 0;
