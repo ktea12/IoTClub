@@ -4,12 +4,32 @@
  <link rel="stylesheet" href="style.css">
  <meta charset="UTF-8">
  <meta name="description" content="IoT Website">
- <meta name="keywords" content="HTML CSS">
+ <meta name="keywords" content="HTML, CSS, IOT, Quiz">
  <meta name="author" content="IoT Club">
  <title>IoT Quiz</title>
 </head>
 
 <body>
+    <!--Input boxes need to be aligned-->
+    <form method="post" action="http://mercury.swin.edu.au/it000000/formtest.php">
+        <p>Student Details</br></br>
+        <label for="SDTNAME">Name</label>
+            <input type = "text" name = "Name" id = "SDTNAME" required = "required" minlength = "1" maxlength = "30"/></br>
+        <label for="SDTLNAME">Surname  </label>
+            <input type = "text" name = "Surname" id = "SDTLNAME" required = "required" minlength = "1" maxlength = "30"/></br>
+        <label for="SDTID">Student ID</label> 
+            <input type = "text" name = "Student ID" id = "SDTID" required = "required" minlength = "7" maxlength = "10" pattern = "[0-9]+"/></br></br>
+        </p>
+        <fieldset>
+            <p><label for="coined">Who coined the term internet of things?</label> 
+                <select name="coined" id="coined">
+                    <option value="Gates">Bill Gates</option>			
+                    <option value="Lewis">Peter Lewis</option>
+                    <option value="Ashton">Kevin Ashton</option>
+                    <option value="Weiser">Mark Weiser</option>
+                </select>
+            </p>
+    </form>
 <footer>
     "The IoT Club" aims to provide the best possible information on the technology "Internet of Things".<br>
     Contact US: <br>
