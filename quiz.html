@@ -10,25 +10,31 @@
 </head>
 
 <body>
+    <h1>Quiz</h1>
+    <h2>Student Details</h2>
     <!--Input boxes need to be aligned-->
     <form method="post" action="http://mercury.swin.edu.au/it000000/formtest.php">
-        <p>Student Details</br></br>
-        <label for="SDTNAME">Name</label>
-            <input type = "text" name = "Name" id = "SDTNAME" required = "required" minlength = "1" maxlength = "30"/></br>
-        <label for="SDTLNAME">Surname  </label>
-            <input type = "text" name = "Surname" id = "SDTLNAME" required = "required" minlength = "1" maxlength = "30"/></br>
-        <label for="SDTID">Student ID</label> 
-            <input type = "text" name = "Student ID" id = "SDTID" required = "required" minlength = "7" maxlength = "10" pattern = "[0-9]+"/></br></br>
+        <p>
+            <label for="SDTNAME">Name</label>
+                <input type = "text" name = "Name" id = "SDTNAME" required = "required" minlength = "1" maxlength = "30"/></br>
+            <label for="SDTLNAME">Surname</label>
+                <input type = "text" name = "Surname" id = "SDTLNAME" required = "required" minlength = "1" maxlength = "30"/></br>
+            <label for="SDTID">Student ID</label> 
+                <input type = "text" name = "Student ID" id = "SDTID" required = "required" minlength = "7" maxlength = "10" pattern = "[0-9]+"/></br></br>
         </p>
         <fieldset>
-            <p><label for="coined">Who coined the term internet of things?</label> 
+            <p>
+                <!--I moved the drop down to be in front of the question; possibly more intuitive or not, just an idea.-->
                 <select name="coined" id="coined">
                     <option value="Gates">Bill Gates</option>			
                     <option value="Lewis">Peter Lewis</option>
                     <option value="Ashton">Kevin Ashton</option>
                     <option value="Weiser">Mark Weiser</option>
                 </select>
+                <label for="coined"> coined the term "internet of things".</label> 
+
             </p>
+        </fieldset>
     </form>
 <footer>
     "The IoT Club" aims to provide the best possible information on the technology "Internet of Things".<br>
