@@ -12,12 +12,11 @@
 <body id="all_quiz">
     <h1>Quiz</h1>
     <div class="div1">
-    <!--Input boxes need to be aligned-->
     <form method="post" action="http://mercury.swin.edu.au/it000000/formtest.php">
 
         <h2>Your Details:</h2>
         <fieldset>
-            <p>
+            <p id="quiz_details">
                 <label for="SDTNAME">Name</label>
                     <input type = "text" name = "Name" id = "SDTNAME" required = "required" minlength = "1" maxlength = "30" pattern="[A-Za-z- ]+"/><br>
                 <label for="SDTLNAME">Surname</label>
@@ -32,22 +31,21 @@
         <h2>Quiz:</h2>
         <!-- Drop down -->
         <fieldset>
-            <legend>Question 1</legend>
+            <legend><strong>Question 1</strong></legend>
             <p>
-                <!--I moved the drop down to be in front of the question; possibly more intuitive or not, just an idea.-->
                 <select name="coined" id="coined">
                     <option value="Gates">Bill Gates</option>			
                     <option value="Lewis">Peter Lewis</option>
                     <option value="Ashton">Kevin Ashton</option>
                     <option value="Weiser">Mark Weiser</option>
                 </select>
-                <label for="coined"> coined the term "internet of things".</label> 
+                <label for="coined"> coined the term "Internet of Things".</label> 
             </p>
         </fieldset>
         
         <!-- Radio button -->
         <fieldset>
-            <legend>Question 2</legend>
+            <legend><strong>Question 2</strong></legend>
             <p>
                 <label for="not_IOT_device">Which of the following is <strong>not</strong> and IOT device?</strong></label><br>
                 <label><input type="radio" name="not_IOT_device" value="laptop">A laptop</label>
@@ -59,7 +57,7 @@
         
         <!-- Checkbox -->
         <fieldset>
-            <legend>Question 3</legend>
+            <legend><strong>Question 3</strong></legend>
             <p>
                 <label for="IoT_built_on">Which of the following is IoT built upon <strong>(Select all that apply)</strong></label><br>
                 <label><input type="checkbox" name="built_on" value="RAID configurations" checked>RAID configurations</label>
@@ -73,7 +71,7 @@
 
         <!-- Textbox -->
         <fieldset>
-            <legend>Question 4</legend>
+            <legend><strong>Question 4</strong></legend>
             <p>
                 <label for ="answer">A</label>
                 <input type = "text" name = "device" id = "answer" required = "required" minlength = "1" placeholder="????"/>
@@ -82,7 +80,6 @@
         </fieldset>
         <input type= "submit" value="Submit"/>
 		<input type= "reset" value="Reset Form"/>
-
 
     </form>
     </class>

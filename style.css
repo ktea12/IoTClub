@@ -101,6 +101,12 @@ p {
   font-family: 'Fira Sans', sans-serif;
 }
 
+/*Quiz*/
 #all_quiz{
   text-align: center;
+}
+#quiz_details{
+  display:inline-block;
+  margin-right:30px;
+  text-align:right;
 }
