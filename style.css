@@ -1,111 +1,112 @@
 nav a {
-    text-decoration: none;
-    color: white;
-    padding: 0.05em 0.6em;
-    border: 4px solid black;
+  text-decoration: none;
+  color: white;
+  padding: 0.05em 0.6em;
+  border: 4px solid black;
 }
 
 nav a:hover {
-  color: white;
-  background: #0b0b0b80;
-  box-shadow: 0 3px 5px 5px rgba(102, 51, 153, 0.5);
+color: white;
+background: #0b0b0b80;
+box-shadow: 0 3px 5px 5px rgba(102, 51, 153, 0.5);
 }
 
 h1 {
-  font-weight: bold;
-  color: white;
-  font-size: 40px;
-  text-align: center;
+font-weight: bold;
+color: white;
+font-size: 40px;
+text-align: center;
 }
 
 .txt1 {
-  font-weight: bold;
-  text-align: center;
+font-weight: bold;
+text-align: center;
 }
 
 .cont {
-  height: 300px;
-  position: relative;
+height: 300px;
+position: relative;
 }
 
 .center {
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+margin: 0;
+position: absolute;
+top: 50%;
+left: 50%;
+-ms-transform: translate(-50%, -50%);
+transform: translate(-50%, -50%);
 }
 
 .btn {
-  letter-spacing: 5px;
-  word-spacing: 10px;
-  border: 1px;
-  padding: 16px 250px;
-  background-color: rgba(255, 255, 255, 0.7);
-  text-align: center;
-  font-size: 16px;
-  margin: 4px 12px;
-  transition-duration: 0.4s;
-  cursor: pointer;
-  box-shadow: 0 3px 5px 5px rgba(0, 0, 0, 0.5);
-  }
+letter-spacing: 5px;
+word-spacing: 10px;
+border: 1px;
+padding: 16px 250px;
+background-color: rgba(255, 255, 255, 0.7);
+text-align: center;
+font-size: 16px;
+margin: 4px 12px;
+transition-duration: 0.4s;
+cursor: pointer;
+box-shadow: 0 3px 5px 5px rgba(0, 0, 0, 0.5);
+}
 
 .btn:hover {
-  color: white;
-  background: #0b0b0b80;
-  box-shadow: 0 3px 5px 5px rgba(102, 51, 153, 0.5);
-  }
+color: white;
+background: #0b0b0b80;
+box-shadow: 0 3px 5px 5px rgba(102, 51, 153, 0.5);
+}
 
 body{
-  background-image: url(https://i.postimg.cc/QCv4RPPK/Design-Mind-Io-T.gif);
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      background-size: cover;
-      }
+background-image: url(https://i.postimg.cc/QCv4RPPK/Design-Mind-Io-T.gif);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    }
 
 table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-  }
+border: 1px solid black;
+border-collapse: collapse;
+}
 
 .div1{
-  height: 100%;
-  margin: 0;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-color: azure;
-  background-image: linear-gradient(azure, powderblue);
+height: 100%;
+margin: 0;
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-color: rgba(255, 255, 255, 0.7);
+background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(102, 51, 153, 0.5));
 }
 
 footer{
-  background-color: rgba(192, 192, 192, 0.4) ; text-align: center; color: white ; 
+margin-top: 50px;
+background-color: rgba(192, 192, 192, 0.4) ; text-align: center; color: black ; 
 }
 aside {
-  width: 30%;
-  padding-left: .5rem;
-  margin-left: .5rem;
-  float: right;
-  box-shadow: inset 5px 0 5px -5px #29627e;
-  font-style: italic;
-  color: #29627e;
-  border:rgba(192, 192, 192, 0.4)
+width: 30%;
+padding-left: .5rem;
+margin-left: .5rem;
+float: right;
+box-shadow: inset 5px 0 5px -5px #29627e;
+font-style: italic;
+color: #29627e;
+border:rgba(192, 192, 192, 0.4)
 }
 
 aside > p {
-  margin: .5rem;
+margin: .5rem;
 }
 
 p {
-  font-family: 'Fira Sans', sans-serif;
+font-family: 'Fira Sans', sans-serif;
 }
 
 /*Quiz*/
 #all_quiz{
-  text-align: center;
+text-align: center;
 }
 #quiz_details{
-  display:inline-block;
-  margin-right:30px;
-  text-align:right;
+display:inline-block;
+margin-right:30px;
+text-align:right;
 }
