@@ -1,3 +1,11 @@
+/* 
+filename: [style.css] 
+author: [IOT Club] 
+created: [09/03/2022] 
+last modified: [30/03/2022] 
+description: [quiz.html, topic.html, index.html, enhancements.html]
+*/ 
+
 * {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
@@ -120,10 +128,15 @@ font-family: 'Fira Sans', sans-serif;
 
 /*Quiz*/
 #all_quiz{
-text-align: center;
+  text-align: center;
 }
 #quiz_details{
-display:inline-block;
-margin-right:30px;
-text-align:right;
+  display:inline-block;
+  margin-right:30px;
+  text-align:right;
+}
+
+/*Topic*/
+#topic_ashton{
+  text-align: center;
 }
