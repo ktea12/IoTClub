@@ -15,6 +15,14 @@ background: #0b0b0b80;
 box-shadow: 0 3px 5px 5px rgba(102, 51, 153, 0.5);
 }
 
+#head1 {
+  color: white;
+}
+
+#head2 {
+  color: #780745;
+}
+
 h1 {
 font-family: 'Times New Roman', Times, serif;
 font-weight: bold;

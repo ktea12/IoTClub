@@ -7,22 +7,44 @@
  <meta name="keywords" content="HTML CSS">
  <meta name="author" content="IoT Club">
  <title>IoT Description</title>
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
-
 <body>
-<header id="all_quiz"><nav>
-    <img src="iotlogo1.png" alt="IoT Logo" style="width: 7%;height: 7%;">
-        <a>Internet of Things Navigation Bar:</a> 
-        <a href="">Index</a> 
-        <a href="">Topic</a> 
-        <a href="">Quiz</a>
-        <a href="">Enhancements</a>
-     </nav>
+
+<nav class="navbar navbar-inverse">
+ <div class="container-fluid">
+   <div class="navbar-header">
+     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+       <span class="icon-bar"></span>
+       <span class="icon-bar"></span>
+       <span class="icon-bar"></span>                        
+     </button>
+     <p class="navbar-brand">Internet of Things</a>
+   </div>
+   <div class="collapse navbar-collapse" id="myNavbar">
+     <ul class="nav navbar-nav">
+       <li class="dropdown">
+       <li><a href="#">Index</a></li>
+       <li><a href="#">Topic</a></li>
+       <li><a href="#">Quiz</a></li>
+     </ul>
+     <ul class="nav navbar-nav navbar-right">
+       <li><a href="#"><span class="glyphicon glyphicon-info-sign"></span> Enhancements</a></li>
+     </ul>
+   </div>
+ </div>
+</nav>
+
+<header id="all_quiz">
+    <img src="C:\Users\Guest1\Downloads\iotlogo1.png" alt="IoT Logo" style="width: 7%;height: 7%;">
 </header>
-  <H1>INTRODUCTION TO "IoT"</H1>
+  <H1 id="head1">INTRODUCTION TO "IoT"</H1>
   <div class="div1">
        
-        <section><h3>What is 'Iot' ? It's Purpose, Function & Features</h3>
+        <section><h3 id="head2">What is 'Iot' ? It's Purpose, Function & Features</h3>
             <hr>
             <p>Internet of Things, abbreviated to IoT, refers to the ecosystem of networks between physical devices simultaneously collecting and sharing data. Despite the name, IoT devices need only be connected to a network (not exclusively the Internet) and individually addressable to be considered as such.
                 Due to a lack of universal direction within the Internet of Things, it is difficult to pin-point its singular direction, however, it’s increasingly proficient self reporting and functionality in real time is universally beneficial. This majorly improves efficiency, reducing the need for human intervention. For example, where once a technicians report may have been required to rectify a product’s fault, virtual mass error reports may be collected as an alternative, and for a fraction of the cost.
@@ -37,7 +59,7 @@
                 The person who coined the term "Internet of Things", what we know as of today. He came out with this name because of the ever growing vogue of Internet among people in the 1990s. Thus, in order to advocate his project work while working in a supply chain management company named 'Procter and Gamble' , he named the term "Internet of Things".
                 
         </aside>
-        <section><h3>Term Origin - Leading to it's Development</h3>
+        <section><h3 id="head2">Term Origin - Leading to it's Development</h3>
             <hr>
             <p>Although conceptualised in 1832, the development of the IoT began with the invention of the internet and its predecessors in the late 1960s. The term “Internet of Things” itself was first used by Peter T. Lewis and later coined by Kevin Ashton of Procter & Gamble in 1999.</p>
                 <p> Following are the key forces which led to the development of Internet of Things:</p>
@@ -58,24 +80,24 @@
         </section>
     
 
-        <section><h3>Administration & Management</h3>
+        <section><h3 id="head2">Administration & Management</h3>
             <hr>
             <p>Whilst network administrators manage IoT devices connected to their private network, the IoT pertaining to the world wild web (WWW) has no sole manager. Ultimately, the Internet of Things is a self-regulated ecosystem, with no sole or oligarchical supervisor. It is this freedom to connect to the IoT that allows and has allowed its rapid expansion.
-                Although governments have attempted to minimize hacking in the name of Cybersecurity, legislative management of the IoT has proved minimally effective. Prosecution of cybercriminals, whilst common, occurs at a rate much lower than crimes are being commited by perpetrators. Defence agencies, such as the FBI in 2018, have given various security warnings pertaining specifically to the dangers that the IoT poses to one's household.
-                Said warnings from authorative bodies may prove helpful for those who actively follow recomendations, realistically, global management and administration of the IoT is a task proving to be almost impossible.  </p>
+                Although governments have attempted to minimize hacking in the name of Cybersecurity, legislative managemen of the IoT has proved minimally effective. Prosecution of cybercriminals, whilst common, occurs at a rate much lower than crimes are being commited by perpetrators. Defence agencies, such as the FBI in 2018, have given various security warnings pertaining specifically to the dangers that the IoT poses to one's household.
+                Said warnings from authorative bodies may prove helpful for those who actively follow reccomendations, realistically, global management and administration of the IoT is a task proving to be almost impossible.  </p>
         </section>
 
-        <section><h3>Growth & Decline</h3>
+        <section><h3 id="head2">Growth & Decline</h3>
             <hr>
             <p>The IoT has experienced exponential growth, reporting a 31% increase in 2019. Since its first conception, the IoT has been subject to consistent advancements in its technology/devices, likely correlated to the growth in world wide population. Analysts have predicted a collective 41.6 billion IOT connected devices by the year 2025.
                 Increasing automation is likely to increase growth of the IoT, however faster connection speeds may see a reduction in hardware and an increase in streaming, exemplified in XBox’s ‘remote play’ feature.
                 Various concerns have arisen from the growth of the IOT, majorly those of security and privacy of individuals. Due to monetary exploitation of information available on the IOT, the population has been and will be subjected to a steep increase in cybercrime.It's time to get prepared and start evolving. The internet of things will cause a paradigm shift in human nature!</p>
         </section>
        
-        <section><h3>Related Technologies</h3>
+        <section><h3 id="head2">Related Technologies</h3>
             <hr>
             <p>Although Wi-Fi itself is a subset of the IoT, both networks reflect the functions of the other, allowing communication between devices connected to the same network and through the internet. A Wi-Fi network is often governed by the strength of its router’s signal, whereas the all encapsulating nature of the IoT, deems it practically limitless, only requiring a network connection.</p>
-            <h3>IoT Device & Explanation</h3>
+            <h3 id="head2">IoT Device & Explanation</h3>
             <dl>
                   <dt> Shark Tag :</dt> 
                    <dd> Tracker imbedded into sharks for location tracking in the wild</dd>
@@ -93,7 +115,7 @@
         </section>
            
         <fieldset>
-<legend> <h2>Reading in some benefits of IoT :</h2></legend>
+<legend> <h2 id="head2">Reading in some benefits of IoT :</h2></legend>
  <center><img src="IoTbenefits.png" alt="Iot Benefits" width="800" height="500"></center>
         </fieldset>
 
