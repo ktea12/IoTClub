@@ -121,7 +121,15 @@ font-family: 'Fira Sans', sans-serif;
 }
 
 table {
-  border: solid 3px purple
+  border: solid 3px purple;
+  width: 90%;
+  height: 300px;
+  margin-bottom: 1.5em;
+  
+}
+
+th,td {
+  font-size: large;
 }
 
 /*Quiz*/
