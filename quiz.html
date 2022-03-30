@@ -7,23 +7,46 @@
  <meta name="keywords" content="HTML, CSS, IOT, Quiz">
  <meta name="author" content="IoT Club">
  <title>IoT Quiz</title>
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
-
 <body id="all_quiz">
-<header><nav>
-    <img src="iotlogo1.png" alt="IoT Logo" style="width: 7%;height: 7%;">
-        <a>Internet of Things Navigation Bar:</a> 
-        <a href="">Index</a> 
-        <a href="">Topic</a> 
-        <a href="">Quiz</a>
-        <a href="">Enhancements</a>
-     </nav>
-</header>
-    <h1>Quiz</h1>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+ <div class="container-fluid">
+   <div class="navbar-header">
+     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+       <span class="icon-bar"></span>
+       <span class="icon-bar"></span>
+       <span class="icon-bar"></span>                        
+     </button>
+     <p class="navbar-brand">Internet of Things</a>
+   </div>
+   <div class="collapse navbar-collapse" id="myNavbar">
+     <ul class="nav navbar-nav">
+       <li class="dropdown">
+       <li><a href="#">Index</a></li>
+       <li><a href="#">Topic</a></li>
+       <li class="active"><a href="#">Quiz</a></li>
+     </ul>
+     <ul class="nav navbar-nav navbar-right">
+       <li><a href="#"><span class="glyphicon glyphicon-info-sign"></span> Enhancements</a></li>
+     </ul>
+   </div>
+ </div>
+</nav>
+<body >
+    <header id="all_quiz">
+        <img id="logo" src="iotlogo1.png" alt="IoT Logo">
+        <br>
+        <H1 id="head1">Quiz</H1>
+    </header>
     <div class="div1">
     <form method="post" action="http://mercury.swin.edu.au/it000000/formtest.php">
 
-        <h2>Your Details:</h2>
+        <h2 id="head2">Your Details:</h2>
         <fieldset>
             <p id="quiz_details">
                 <label for="SDTNAME">Name</label>
@@ -37,7 +60,7 @@
         <br>
 
         <!-- Quiz -->
-        <h2>Quiz:</h2>
+        <h2 id="head2">Quiz:</h2>
         <!-- Drop down -->
         <fieldset>
             <legend><strong>Question 1</strong></legend>

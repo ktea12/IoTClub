@@ -31,6 +31,11 @@ box-shadow: 0 3px 5px 5px rgba(102, 51, 153, 0.5);
   color: #780745;
 }
 
+#logo {
+  width: 100px;
+  height: 65px;
+}
+
 h1 {
 font-family: 'Times New Roman', Times, serif;
 font-weight: bold;
