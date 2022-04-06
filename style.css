@@ -1,7 +1,19 @@
+/* 
+filename: [style.css] 
+author: [IOT Club] 
+created: [09/03/2022] 
+last modified: [30/03/2022] 
+description: [quiz.html, topic.html, index.html, enhancements.html]
+*/ 
+
+* {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
 nav a {
   text-decoration: none;
   color: white;
-  padding: 0.05em 0.6em;
+  padding: 0.1em 0.8em;
   border: 4px solid black;
 }
 
@@ -11,11 +23,30 @@ background: #0b0b0b80;
 box-shadow: 0 3px 5px 5px rgba(102, 51, 153, 0.5);
 }
 
+#head1 {
+  color: white;
+}
+
+#head2 {
+  color: #780745;
+}
+
+#logo {
+  width: 100px;
+  height: 65px;
+}
+
 h1 {
+font-family: 'Times New Roman', Times, serif;
 font-weight: bold;
 color: white;
 font-size: 40px;
 text-align: center;
+}
+
+h2, h3 {
+font-family: 'Times New Roman', Times, serif;
+color: #780745;
 }
 
 .txt1 {
@@ -64,6 +95,10 @@ background-image: url(https://i.postimg.cc/QCv4RPPK/Design-Mind-Io-T.gif);
     background-size: cover;
     }
 
+header {
+  margin-top: 70px;
+}
+
 table, th, td {
 border: 1px solid black;
 border-collapse: collapse;
@@ -76,6 +111,7 @@ background-repeat: no-repeat;
 background-attachment: fixed;
 background-color: rgba(255, 255, 255, 0.7);
 background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(102, 51, 153, 0.5));
+padding: 50px;
 }
 
 cite{
@@ -87,6 +123,7 @@ footer{
 margin-top: 50px;
 background-color: rgba(192, 192, 192, 0.4) ; text-align: center; color: black ; 
 }
+
 aside {
 width: 30%;
 padding-left: .2rem;
@@ -109,12 +146,33 @@ p {
 font-family: 'Fira Sans', sans-serif;
 }
 
+table {
+  border: solid 3px purple;
+  width: 90%;
+  height: 300px;
+  margin-bottom: 1.5em;
+  
+}
+
+th,td {
+  font-size: large;
+}
+
 /*Quiz*/
 #all_quiz{
-text-align: center;
+  text-align: center;
 }
 #quiz_details{
-display:inline-block;
-margin-right:30px;
-text-align:right;
+  display:inline-block;
+  margin-right:30px;
+  text-align:right;
+}
+#slider{
+  width:50%;
+  text-align: center;
+}
+
+/*Topic*/
+#topic_ashton{
+  text-align: center;
 }
