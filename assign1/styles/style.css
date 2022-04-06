@@ -153,6 +153,26 @@ table {
   margin-bottom: 1.5em;
   
 }
+#dl {
+  font-size: 16px;
+}
+.size {
+  font-size: 15px;
+}
+.zoom {overflow:hidden; height:400; width:500; float:center; }
+
+.zoom img {width:100%; -webkit-transition: all .3s ;
+		-moz-transition: all .3s ;
+        -ms-transition: all .3s ;
+        -o-transition: all .3s ;
+		transition: all .3s ;}
+
+.zoom:hover img {width:120%; margin: 0 0 0 -10%; -webkit-transition: all .3s ;
+		-moz-transition: all .3s ;
+        -ms-transition: all .3s ;
+        -o-transition: all .3s ;
+		transition: all .3s ;}
+
 
 th,td {
   font-size: large;
