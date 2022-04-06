@@ -1,5 +1,5 @@
 body {
-    font-family: "Nunito", sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-color: white;
@@ -62,5 +62,21 @@ body {
       }
       .blurb h2 {
           font-size: 2rem;
+      }
+
+      .Heading {
+          font-family: Verdana, sans-serif;
+          font-weight: bold;
+          font-size: 30px;
+      }
+
+      .lead {
+          font-family: Times, Times New Roman, Georgia, serif;
+      }
+
+      .css {
+          font-family: Verdana, sans-serif;
+          font-weight: bold;
+          font-size: 30px;
       }
   }
