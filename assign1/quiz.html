@@ -14,31 +14,31 @@
 </head>
 <body id="all_quiz">
 
-<nav class="navbar navbar-inverse navbar-fixed-top">
- <div class="container-fluid">
-   <div class="navbar-header">
-     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-       <span class="icon-bar"></span>
-       <span class="icon-bar"></span>
-       <span class="icon-bar"></span>                        
-     </button>
-     <p class="navbar-brand">Internet of Things</a>
-   </div>
-   <div class="collapse navbar-collapse" id="myNavbar">
-     <ul class="nav navbar-nav">
-       <li class="dropdown">
-       <li><a href="index.html">Index</a></li>
-       <li><a href="topic.html">Topic</a></li>
-       <li class="active"><a href="quiz.html">Quiz</a></li>
-     </ul>
-     <ul class="nav navbar-nav navbar-right">
-       <li><a href="enhancements.html"><span class="glyphicon glyphicon-info-sign"></span> Enhancements</a></li>
-     </ul>
-   </div>
- </div>
-</nav>
-<body >
-    <header id="all_quiz">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+        </button>
+        <p class="navbar-brand">Internet of Things</p>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+        <li class="dropdown">
+        <li><a href="index.html">Index</a></li>
+        <li><a href="topic.html">Topic</a></li>
+        <li class="active"><a href="quiz.html">Quiz</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+        <li><a href="enhancements.html"><span class="glyphicon glyphicon-info-sign"></span> Enhancements</a></li>
+        </ul>
+    </div>
+    </div>
+    </nav>
+
+    <header>
         <img id="logo" src="images/iotlogo1.jpg" alt="IoT Logo">
         <br>
         <H1 id="head1">Quiz</H1>
@@ -59,7 +59,7 @@
         </fieldset>
         <br>
 
-        <!-- Quiz -->
+        <!-- Quiz --> <!-- Causes duplicate ID error but idk a way around it.-->
         <h2 id="head2">Quiz:</h2>
         <!-- Drop down -->
         <fieldset>
@@ -79,7 +79,7 @@
         <fieldset>
             <legend><strong>Question 2</strong></legend>
             <p>
-                <label for="not_IOT_device">Which of the following is <strong>not</strong> an IOT device?</strong></label><br>
+                <label>Which of the following is <strong>not</strong> an IOT device?</label><br>
                 <label><input type="radio" name="not_IOT_device" value="laptop">A laptop</label>
                 <label><input type="radio" name="not_IOT_device" value="shark tag" required="required">Shark tag</label>
 				<label><input type="radio" name="not_IOT_device" value="google home">Google Home</label>
@@ -94,10 +94,10 @@
                 <label>Which of the following is IoT built upon <strong>(Select all that apply)</strong></label><br>
                 <!-- &nbsp; is used to create space between options.-->
                 <label><input type="checkbox" name="built_on[]" value="RAID configurations" checked>RAID configurations &nbsp;</label>
-                <label><input type="checkbox" name="built_on[]" value="Cloud computing">Cloud computing &nbsp;<label>
-                <label><input type="checkbox" name="built_on[]" value="Data gathering sensors">Data gathering sensors &nbsp;<label>
-                <label><input type="checkbox" name="built_on[]" value="Interconnected devices">Interconnected devices &nbsp;<label>
-                <label><input type="checkbox" name="built_on[]" value="Smart fridges">Smart fridges<label>
+                <label><input type="checkbox" name="built_on[]" value="Cloud computing">Cloud computing &nbsp;</label>
+                <label><input type="checkbox" name="built_on[]" value="Data gathering sensors">Data gathering sensors &nbsp;</label>
+                <label><input type="checkbox" name="built_on[]" value="Interconnected devices">Interconnected devices &nbsp;</label>
+                <label><input type="checkbox" name="built_on[]" value="Smart fridges">Smart fridges</label>
             </p>
         </fieldset>
 
@@ -126,11 +126,11 @@
 		<input type= "reset" value="Reset Form"/>
 
     </form>
-    </class>
+    </div>
 <footer>
     <em>"The IoT Club" aims to provide the best possible information on the technology "Internet of Things".<br>
         Contact US:</em> <br>
-    &copy <a href="mailto=103802047@student.swin.edu.au">IoT Club Email</a>
+    &copy; <a href="mailto=103802047@student.swin.edu.au">IoT Club Email</a>
 </footer>
 </body>
 </html>
