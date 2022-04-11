@@ -154,7 +154,8 @@ margin: .5rem;
 }
 
 .kevin {
-  size: 15em
+  /*Originally just had "size:". Not sure what was meant here but just changed it to resize. No impact anyway.*/
+  resize: 15em;
   border: 1px solid salmon;
   background-color :rgba(0, 0, 0, 0.5) ;
 }
@@ -185,19 +186,33 @@ th {
 .size {
   font-size: 15px;
 }
-.zoom {overflow:hidden; height:400; width:500; float:center; }
+.zoom {overflow:show; height:720px; width:1296px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
 
 .zoom img {width:100%; -webkit-transition: all .3s ;
 		-moz-transition: all .3s ;
         -ms-transition: all .3s ;
         -o-transition: all .3s ;
-		transition: all .3s ;}
+		transition: all .3s ;
+  }
 
 .zoom:hover img {width:120%; margin: 0 0 0 -10%; -webkit-transition: all .3s ;
 		-moz-transition: all .3s ;
         -ms-transition: all .3s ;
         -o-transition: all .3s ;
-		transition: all .3s ;}
+		transition: all .3s ;
+  }
+  /*unfinished:*/
+  .zoom:btnLeft:active {width:160%; margin: 0 0 0 -20%; -webkit-transition: all .3s ;
+		-moz-transition: all .3s ;
+        -ms-transition: all .3s ;
+        -o-transition: all .3s ;
+		transition: all .3s ;
+  }
 
 
 
@@ -219,8 +234,15 @@ th {
 #topic_ashton{
   text-align: center;
 }
+#square{
+  list-style-type: square;
+}
+#border5{
+  border: 5;
+}
 
 /*Index*/
 #citation{
   color: white;
+  text-align: center;
 }
