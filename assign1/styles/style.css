@@ -23,6 +23,8 @@ box-shadow: 0 3px 5px 5px rgba(102, 51, 153, 0.5);
 }
 
 .head1 {
+  /*Shadow to increase readability*/
+  text-shadow: -1.5px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
   color: white;
   font-family:'Times New Roman', Times, serif ;
   background-image: url(https://iot5.net/wp-content/uploads/2019/09/internet-of-things-technology-3.jpg);
