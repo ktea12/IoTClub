@@ -19,7 +19,6 @@ nav a {
 
 nav a:hover {
 color: white;
-background: #0b0b0b80;
 box-shadow: 0 3px 5px 5px rgba(102, 51, 153, 0.5);
 }
 
@@ -82,7 +81,6 @@ border: 1px;
 padding: 16px 250px;
 background-color: rgba(255, 255, 255, 0.7);
 text-align: center;
-font-size: 16px;
 margin: 4px 12px;
 transition-duration: 0.4s;
 cursor: pointer;
@@ -90,8 +88,7 @@ box-shadow: 0 3px 5px 5px rgba(0, 0, 0, 0.5);
 }
 
 .btn:hover {
-color: white;
-background: #0b0b0b80;
+background-color: rgb(191, 133, 245);
 box-shadow: 0 3px 5px 5px rgba(102, 51, 153, 0.5);
 }
 
