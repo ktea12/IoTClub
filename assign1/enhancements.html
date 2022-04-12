@@ -15,38 +15,46 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,700" rel="stylesheet">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    <!-- Had to delete this for it to work. heres the code though:
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
+    -->
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="app.css">
+
+    <!-- Navigation bar-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
     <title>Enhancements</title>
 </head>
 
 <body>
-    <nav id="mainNavbar" class="navbar navbar-dark navbar-expand-md py-0 fixed-top">
-        <a href="#" class="navbar-brand">Internet of Things</a>
-        <button class="navbar-toggler" data-toggle="collapse" data-target="#navLinks" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navLinks">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-             <a href="index.html" class="nav-link">Home</a>
-         </li>
-         <li class="nav-item">
-             <a href="topic.html" class="nav-link">Topic</a>
-         </li>
-         <li class="nav-item">
-             <a href="quiz.html" class="nav-link">Quiz</a>
-         </li>
-         <li class="nav-item">
-             <a href="enhancements.html" class="nav-link">Enhancements</a>    
-         </li>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>                        
+            </button>
+            <p class="navbar-brand">Internet of Things</p>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+            <li class="dropdown">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="topic.html">Topic</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="enhancements.html"><span class="glyphicon glyphicon-info-sign"></span> Enhancements</a></li>
             </ul>
         </div>
-    </nav>
+        </div>
+        </nav>
+        
     <section class="container-fluid px-100">
         <div class="row align-items-center content">
             <div class="col-md-5 order-2 order-md-1">
