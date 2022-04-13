@@ -205,7 +205,7 @@ margin: .5rem;
 
 .kevin {
   /*Originally just had "size:". Not sure what was meant here but just changed it to resize. No impact anyway.*/
-  resize: 15em;
+  font-size: 15em;
   border: 1px solid salmon;
   background-color :rgba(0, 0, 0, 0.5) ;
 }
@@ -236,21 +236,21 @@ th {
 .size {
   font-size: 15px;
 }
-.zoom {overflow:show; height:720px; width:1296px;
+.zoom {overflow:visible; height:720px; width:1296px;
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 50%;
 }
 
-.zoom img {width:100%; -webkit-transition: all .3s ;
+.zoom img {width:100%;
 		-moz-transition: all .3s ;
         -ms-transition: all .3s ;
         -o-transition: all .3s ;
 		transition: all .3s ;
   }
 
-.zoom:hover img {width:120%; margin: 0 0 0 -10%; -webkit-transition: all .3s ;
+.zoom:hover img {width:120%; margin: 0 0 0 -10%;
 		-moz-transition: all .3s ;
         -ms-transition: all .3s ;
         -o-transition: all .3s ;
@@ -258,15 +258,6 @@ th {
     cursor : pointer ;
 
   }
-  /*unfinished:*/
-  .zoom:btnLeft:active {width:160%; margin: 0 0 0 -20%; -webkit-transition: all .3s ;
-		-moz-transition: all .3s ;
-        -ms-transition: all .3s ;
-        -o-transition: all .3s ;
-		transition: all .3s ;
-  }
-
-
 
 /*Quiz*/
 #all_quiz{
@@ -290,7 +281,7 @@ th {
   list-style-type: square;
 }
 #border5{
-  border: 5;
+  border: 5px;
 }
 
 /*Index*/
