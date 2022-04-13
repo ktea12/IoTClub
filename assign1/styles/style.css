@@ -93,11 +93,7 @@ box-shadow: 0 3px 5px 5px rgba(102, 51, 153, 0.5);
 }
 
 h1 {
-font-family: 'Times New Roman', Times, serif;
-font-weight: bold;
-color: white;
-font-size: 40px;
-text-align: center;
+  font: 40px 'Times New Roman', Times, serif, bold, white, center
 }
 
 h2, h3 {
