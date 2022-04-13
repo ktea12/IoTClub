@@ -7,7 +7,8 @@ description: [enhancements.html]
 */ 
 
 /*
-This page is meant as a CSS file attached to and responsible for creating styling on enhancements.html webpage. All the requirements have been kept in place while preparing the code for this webpage.
+This page is meant as a CSS file attached to and responsible for creating styling on enhancements.html webpage. 
+All the requirements have been kept in place while preparing the code for this webpage.
 */
 
 body {
@@ -103,6 +104,7 @@ body {
   }
   #a {
     text-align:center;
+    font-size: 3rem;
     }
     .head1 {
         /*Shadow to increase readability*/
@@ -119,10 +121,6 @@ body {
         height: 65px;
         margin-top: 70px;
         }
-
-     #all_quiz{
-        text-align: center;
-       }
 
   @media (max-width: 1200px) {
       #headingGroup h1 {
