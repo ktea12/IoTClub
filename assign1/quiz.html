@@ -1,28 +1,34 @@
-<!-- -->
+<!-- This page is called "Quiz". It includes 5 questions related to the IoT that a user can answer using 5 unique input methods.
+They also must input their details, and follow some input masks and validation rules. Upon finishing the quiz, they can submit their answers
+to a web page. They can also clear their answers.-->
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <link rel="stylesheet" href="styles/style.css">
- <meta charset="UTF-8">
- <meta name="description" content="IoT Website">
- <meta name="keywords" content="HTML, CSS, IOT, Quiz">
- <meta name="author" content="IoT Club">
- <title>IoT Quiz</title>
- <meta name="viewport" content="width=device-width, initial-scale=1">
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- Metadata -->
+    <link rel="stylesheet" href="styles/style.css">
+    <meta charset="UTF-8">
+    <meta name="description" content="IoT Website">
+    <meta name="keywords" content="HTML, CSS, IOT, Quiz">
+    <meta name="author" content="IoT Club">
+    <title>IoT Quiz</title>
+    
+    <!-- Imports-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
-<body id="all_quiz">
 
+<body id="all_quiz">
+    <!-- Code for the navigation bar -->
     <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>                        
         </button>
         <p class="navbar-brand">Internet of Things</p>
     </div>
@@ -39,23 +45,30 @@
     </div>
     </div>
     </nav>
+
+    <!-- The title and IoT club logo -->
     <header>
         <img id="logo" src="images/iotlogo.png" alt="IoT Logo">
         <br>
         <h1 class="head1">Quiz</h1>
     </header>
+    
+    <!-- class "div1" gives its contents an opaque grey background -->
     <div class="div1">
     <form method="post" action="http://mercury.swin.edu.au/it000000/formtest.php">
 
+        <!-- Users enter their details here-->
         <h2 class="head2">Your Details:</h2>
         <fieldset>
             <p id="quiz_details">
                 <label for="SDTNAME">Name</label>
+                    <!-- Pattern ensures that input is in the alphabet, or is a hyphen or space. + allows for more than 1 character. -->
                     <input type = "text" name = "Name" id = "SDTNAME" required = "required" minlength = "1" maxlength = "30" pattern="[A-Za-z- ]+"/><br>
                 <label for="SDTLNAME">Surname</label>
                     <input type = "text" name = "Surname" id = "SDTLNAME" required = "required" minlength = "1" maxlength = "30" pattern="[A-Za-z- ]+"/><br>
                 <label for="SDTID">Student ID</label> 
-                    <input type = "text" name = "Student ID" id = "SDTID" required = "required" pattern="\d{7}|\d{10}"/>
+                    <!-- Pattern allows only digits and either 7 or 10 long.-->
+                    <input type = "text" name = "Student ID" id = "SDTID" required = "required" maxlength = "10" pattern="\d{7}|\d{10}"/>
             </p>
         </fieldset>
         <br>
