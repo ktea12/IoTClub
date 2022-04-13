@@ -1,4 +1,6 @@
-<!-- -->
+<!-- This page is called "Quiz". It includes 5 questions related to the IoT that a user can answer using 5 unique input methods.
+They also must input their details, and follow some input masks and validation rules. Upon finishing the quiz, they can submit their answers
+to a web page. They can also clear their answers.-->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -55,7 +57,7 @@
                 <label for="SDTLNAME">Surname</label>
                     <input type = "text" name = "Surname" id = "SDTLNAME" required = "required" minlength = "1" maxlength = "30" pattern="[A-Za-z- ]+"/><br>
                 <label for="SDTID">Student ID</label> 
-                    <input type = "text" name = "Student ID" id = "SDTID" required = "required" pattern="\d{7}|\d{10}"/>
+                    <input type = "text" name = "Student ID" id = "SDTID" required = "required" maxlength = "10" pattern="\d{7}|\d{10}"/>
             </p>
         </fieldset>
         <br>
