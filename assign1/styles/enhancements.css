@@ -1,21 +1,39 @@
 body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-image: url(https://i.postimg.cc/QCv4RPPK/Design-Mind-Io-T.gif);
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-color: purple;
-     background-image: linear-gradient(#660066, white);
+    background-size: cover;
   }
-  
+
+    nav a:hover {
+    color: white;
+    box-shadow: 0 3px 5px 5px rgba(102, 51, 153, 0.5);
+    }
+    nav a {
+        text-decoration: none;
+        color: white;
+        padding: 0.1em 0.8em;
+        border: 4px solid black;
+        text-align: center;
+      }
+    .blurb {
+        width:90%;
+    }
+  .blurb2{
+      padding-top: 100px;
+  }
   .blurb h2 {
      color: aliceblue;
      font-weight: 100;
-     font-size: 2.5rem;
+     font-size: 30px;
+     color: lightpink;
   }
   
   .blurb p {
-      color: black;
+      color: white;
       font-weight: 100;
-      font-size: 1.125rem;
+      font-size: 15px;
       line-height: 2;
   }
   
@@ -30,7 +48,7 @@ body {
 }
   
   #mainNavbar .nav-link {
-      color: ghostwhite;
+      color: purple;
       font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   }
   
@@ -59,22 +77,25 @@ body {
   #a {
     text-align:center;
     }
-
-    .css {
-        font-family: Times New Roman, Georgia, Garamond;
-        font-weight: bold;
-        font-size: 30px;
+    .head1 {
+        /*Shadow to increase readability*/
+        text-shadow: -1.5px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+        color: white;
+        font-family:'Times New Roman', Times, serif ;
+        background-image: url(https://iot5.net/wp-content/uploads/2019/09/internet-of-things-technology-3.jpg);
+        border-color: #780745;
+        padding : 0.5em ;
+        background-blend-mode: lighten ;
     }
+    #logo {
+        width: 100px;
+        height: 65px;
+        margin-top: 70px;
+        }
 
-    .lead {
-        font-family: Arial, Helvetica, sans-serif;
-    }
-
-    .Heading {
-        font-family: Times New Roman, Georgia, Garamond;
-        font-weight: bold;
-        font-size: 30px;
-    }
+     #all_quiz{
+        text-align: center;
+       }
 
   @media (max-width: 1200px) {
       #headingGroup h1 {
@@ -82,23 +103,7 @@ body {
           font-size: 3rem;
       }
       .blurb h2 {
-          font-size: 2rem;
-      }
-
-      .Heading {
-          font-family: Times New Roman, Georgia, Garamond;
-          font-weight: bold;
-          font-size: 30px;
-      }
-
-      .lead {
-          font-family: Arial, Helvetica, sans-serif;
-      }
-
-      .css {
-          font-family: Times New Roman, Georgia, Garamond;
-          font-weight: bold;
-          font-size: 30px;
+          font-size: 30px;;
       }
       
   }
