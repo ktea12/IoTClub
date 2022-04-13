@@ -6,6 +6,10 @@ last modified: [13/04/2022]
 description: [quiz.html, topic.html, index.html]
 */ 
 
+/*
+This CSS file is made for styling the index, topic and quiz page of the website. Different selectors have been used to quote the styling to the html pages. The requirements for this page are also kept in place.
+*/
+
 * {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
