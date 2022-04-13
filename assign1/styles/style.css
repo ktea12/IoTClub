@@ -264,6 +264,11 @@ th {
   margin-right:30px;
   text-align:right;
 }
+
+#quiz_details label:first-child {color:blue;}
+#quiz_details label:nth-child(4) {color:red;}
+#quiz_details label:nth-child(7) {color:green;}
+
 #slider{
   width:50%;
   text-align: center;
