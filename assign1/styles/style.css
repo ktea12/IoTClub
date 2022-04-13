@@ -128,11 +128,8 @@ transform: translate(-50%, -50%);
 .btn {
 letter-spacing: 5px;
 word-spacing: 10px;
-border: 1px;
-padding: 16px 250px;
 background-color: rgba(255, 255, 255, 0.7);
 text-align: center;
-margin: 4px 12px;
 transition-duration: 0.4s;
 cursor: pointer;
 box-shadow: 0 3px 5px 5px rgba(0, 0, 0, 0.5);
