@@ -1,6 +1,5 @@
 <!---This is the second page of the website named as "Topic". It includes the information regarding Internet of Things with the use of vrious html markups. Different types of tags like table, lists, aside , section have been used as per the requirements. Some enhancements have also been made to make the page look more attractive.-->
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,36 +15,10 @@
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-
-<nav class="navbar navbar-inverse navbar-fixed-top">
- <div class="container-fluid">
-   <div class="navbar-header">
-     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-       <span class="icon-bar"></span>
-       <span class="icon-bar"></span>
-       <span class="icon-bar"></span>                        
-     </button>
-     <p class="navbar-brand">Internet of Things</p>
-   </div>
-   <div class="collapse navbar-collapse" id="myNavbar">
-     <ul class="nav navbar-nav">
-       <li class="dropdown">
-       <li><a href="index.html">Index</a></li>
-       <li class="active"><a href="topic.html">Topic</a></li>
-       <li><a href="quiz.html">Quiz</a></li>
-     </ul>
-     <ul class="nav navbar-nav navbar-right">
-       <li><a href="enhancements.html"><span class="glyphicon glyphicon-info-sign"></span> Enhancements</a></li>
-     </ul>
-   </div>
- </div>
-</nav>
-
-<header id="all_quiz">
-    <img id="logo" src="images/iotlogo.png" alt="IoT Logo">
-    <br>
-    <H1 class="head1">INTRODUCTION TO "IoT"</H1>
-</header>
+    <?php
+        $page = "topic";
+        include_once ("header.inc");
+    ?>
 <br>
 <div class="image">
 

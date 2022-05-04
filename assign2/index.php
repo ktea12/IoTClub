@@ -17,20 +17,21 @@
 
 <body>
     <?php
-        include_once "header.inc"
+        $page = "index";
+        include_once ("header.inc");
     ?>
 
 <p id = "citation"><cite><b>“IoT will stump IT until clouds and big data come aboard.”</b></cite> — Stephen Lawson, EMC</p>
 <hr /><br>
 <div class="cont">
     <div class="center">
-    <form style="display: inline" action="topic.html" method="get">
+    <form style="display: inline" action="topic.php" method="get">
         <button class="btn txt1">INTERNET OF THINGS DESCRIPTION</button>
     </form><br><br>
-    <form style="display: inline" action="quiz.html" method="get">
+    <form style="display: inline" action="quiz.php" method="get">
         <button class="btn txt1">INTERNET OF THINGS QUIZ</button>
     </form><br><br>
-    <form style="display: inline" action="enhancements.html" method="get">
+    <form style="display: inline" action="enhancements.php" method="get">
         <button class="btn txt1">WEBSITE ENHANCEMENTS</button>
     </form><br><br>
     </div>
