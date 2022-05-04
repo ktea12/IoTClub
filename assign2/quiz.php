@@ -55,20 +55,20 @@ to a web page. They can also clear their answers.-->
     
     <!-- class "div1" gives its contents an opaque grey background -->
     <div class="div1">
-    <form method="post" novalidate="novalidate" action="http://mercury.swin.edu.au/it000000/formtest.php">
+    <form method="post" novalidate="novalidate" action="markquiz.php">
 
         <!-- Users enter their details here-->
         <h2 class="head2">Your Details:</h2>
         <fieldset>
             <p id="quiz_details">
-                <label for="SDTNAME">Name</label>
+                <label for="FirstName">Name</label>
                     <!-- Pattern ensures that input is in the alphabet, or is a hyphen or space. + allows for more than 1 character. -->
-                    <input type = "text" name = "Name" id = "SDTNAME" required = "required" minlength = "1" maxlength = "30" pattern="[A-Za-z- ]+"/><br>
-                <label for="SDTLNAME">Surname</label>
-                    <input type = "text" name = "Surname" id = "SDTLNAME" required = "required" minlength = "1" maxlength = "30" pattern="[A-Za-z- ]+"/><br>
-                <label for="SDTID">Student ID</label> 
+                    <input type = "text" name = "FirstName" value="FirstName" id = "FirstName" required = "required" minlength = "1" maxlength = "30" pattern="[A-Za-z- ]+"/><br>
+                <label for="LastName">Surname</label>
+                    <input type = "text" name = "LastName" value="LastName" id = "LastName" required = "required" minlength = "1" maxlength = "30" pattern="[A-Za-z- ]+"/><br>
+                <label for="StudentID">Student ID</label> 
                     <!-- Pattern allows only digits and either 7 or 10 long.-->
-                    <input type = "text" name = "Student ID" id = "SDTID" required = "required" maxlength = "10" pattern="\d{7}|\d{10}"/>
+                    <input type = "text" name = "StudentID" value="StudentID" id = "StudentID" required = "required" maxlength = "10" pattern="\d{7}|\d{10}"/>
             </p>
         </fieldset>
         <br>
@@ -80,10 +80,10 @@ to a web page. They can also clear their answers.-->
             <legend><strong>Question 1</strong></legend>
             <p>
                 <select name="coined" id="coined">
-                    <option value="Gates">Bill Gates</option>			
-                    <option value="Lewis">Peter Lewis</option>
-                    <option value="Ashton">Kevin Ashton</option>
-                    <option value="Weiser">Mark Weiser</option>
+                    <option value="gates">Bill Gates</option>			
+                    <option value="lewis">Peter Lewis</option>
+                    <option value="ashton">Kevin Ashton</option>
+                    <option value="weiser">Mark Weiser</option>
                 </select>
                 <label for="coined"> coined the term "Internet of Things".</label> 
             </p>
@@ -93,11 +93,11 @@ to a web page. They can also clear their answers.-->
         <fieldset>
             <legend><strong>Question 2</strong></legend>
             <p>
-                <label>Which of the following is <strong>not</strong> an IOT device?</label><br>
+                <label for="not_IOT_device">Which of the following is <strong>not</strong> an IOT device?</label><br>
                 <label><input type="radio" name="not_IOT_device" value="laptop">A laptop</label>
-                <label><input type="radio" name="not_IOT_device" value="shark tag" required="required">Shark tag</label>
-				<label><input type="radio" name="not_IOT_device" value="google home">Google Home</label>
-				<label><input type="radio" name="not_IOT_device" value="smoke alarm">Nest smoke alarm</label>
+                <label><input type="radio" name="not_IOT_device" value="shark" required="required">Shark tag</label>
+				<label><input type="radio" name="not_IOT_device" value="google">Google Home</label>
+				<label><input type="radio" name="not_IOT_device" value="smoke">Nest smoke alarm</label>
             </p>
         </fieldset>
         
@@ -107,11 +107,11 @@ to a web page. They can also clear their answers.-->
             <p>
                 <label>Which of the following is IoT built upon <strong>(Select all that apply)</strong></label><br>
                 <!-- &nbsp; is used to create space between options.-->
-                <label><input type="checkbox" name="built_on[]" value="RAID configurations" checked>RAID configurations &nbsp;</label>
-                <label><input type="checkbox" name="built_on[]" value="Cloud computing">Cloud computing &nbsp;</label>
-                <label><input type="checkbox" name="built_on[]" value="Data gathering sensors">Data gathering sensors &nbsp;</label>
-                <label><input type="checkbox" name="built_on[]" value="Interconnected devices">Interconnected devices &nbsp;</label>
-                <label><input type="checkbox" name="built_on[]" value="Smart fridges">Smart fridges</label>
+                <label><input type="checkbox" name="built_on[]" value="raid" checked>RAID configurations &nbsp;</label>
+                <label><input type="checkbox" name="built_on[]" value="cloud">Cloud computing &nbsp;</label>
+                <label><input type="checkbox" name="built_on[]" value="data">Data gathering sensors &nbsp;</label>
+                <label><input type="checkbox" name="built_on[]" value="intdevice">Interconnected devices &nbsp;</label>
+                <label><input type="checkbox" name="built_on[]" value="fridges">Smart fridges</label>
             </p>
         </fieldset>
 
@@ -119,9 +119,9 @@ to a web page. They can also clear their answers.-->
         <fieldset>
             <legend><strong>Question 4</strong></legend>
             <p>
-                <label for ="answer">A</label>
-                <input type = "text" name = "device" id = "answer" required = "required" minlength = "1" placeholder="????"/>
-                <label for ="answer">is a device that detects external information and creates a signal recognisable by people or machines</label>
+                <label for ="device">A</label>
+                <input type = "text" name = "device" id = "device" value="device" required = "required" minlength = "1" placeholder="????"/>
+                <label for ="device">is a device that detects external information and creates a signal recognisable by people or machines</label>
             </p>
         </fieldset>
 
