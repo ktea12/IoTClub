@@ -55,7 +55,7 @@ to a web page. They can also clear their answers.-->
     
     <!-- class "div1" gives its contents an opaque grey background -->
     <div class="div1">
-    <form method="post" action="http://mercury.swin.edu.au/it000000/formtest.php">
+    <form method="post" novalidate="novalidate" action="http://mercury.swin.edu.au/it000000/formtest.php">
 
         <!-- Users enter their details here-->
         <h2 class="head2">Your Details:</h2>
