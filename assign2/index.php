@@ -37,7 +37,7 @@
     </div>
 </div>
 <hr>
-<br><br><br><br><br><br><br>
+<br><br><br>
     <?php
         include_once "footer.inc"?>;
   </body>
