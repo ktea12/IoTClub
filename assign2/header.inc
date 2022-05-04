@@ -25,7 +25,7 @@
 			else
 				$class2 = "";
 			?>
-            	<li class = '$class2'><a href="topic.php">Topic</a></li>
+            	<li class = '<?php echo $class2; ?>'><a href="topic.php">Topic</a></li>
 
 			<?php
 			if ($page == "quiz")
@@ -33,7 +33,7 @@
 			else
 				$class3 = "";
 			?>
-            	<li class = '$class3'><a href="quiz.php">Quiz</a></li>
+            	<li class = '<?php echo $class3; ?>'><a href="quiz.php">Quiz</a></li>
             	</ul>
 
             	<ul class="nav navbar-nav navbar-right">
@@ -43,7 +43,7 @@
 			else
 				$class4 = "";
 			?>
-            	<li class = '$class'><a href="enhancements.php"><span class="glyphicon glyphicon-info-sign"></span> Enhancements</a></li>
+            	<li class = '<?php echo $class4; ?>'><a href="enhancements.php"><span class="glyphicon glyphicon-info-sign"></span> Enhancements</a></li>
             	</ul>
         	</div>
 

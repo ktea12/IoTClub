@@ -4,6 +4,7 @@
 <html lang="en">
 <head>
  <link rel="stylesheet" href="styles/enhancements.css">
+ <link rel="stylesheet" href="styles/style.css">
  <meta charset="UTF-8">
  <meta name="description" content="IoT Website">
  <meta name="keywords" content="HTML, CSS, Enhancements, IOT">
