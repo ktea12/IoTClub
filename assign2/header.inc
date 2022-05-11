@@ -68,8 +68,10 @@
 			echo "<h1 class='head1'>INTRODUCTION TO IoT</h1>";
 		elseif ($page == "quiz")
 			echo "<h1 class='head1'>Quiz</h1>";
+		elseif ($page == "enhancements")
+			echo "<h1 class='head1'>Enhancements</h1>";
 		else
-			echo "<h1 class='head1'>Enhancement</h1>";
+			echo "<h1 class='head1'>Manager</h1>";
 			
 	?>
 </header>
