@@ -44,9 +44,17 @@
 				$class4 = "";
 			?>
             	<li class = '<?php echo $class4; ?>'><a href="enhancements.php"><span class="glyphicon glyphicon-info-sign"></span> Enhancements</a></li>
-            	</ul>
+            	
+			
+			<?php
+			if ($page == "manage")
+				$class5 = "active";
+			else
+				$class5 = "";
+			?>
+			<li class = '<?php echo $class5; ?>'><a href="manage.php"><span class="glyphicon glyphicon-info-sign"></span> Manager</a></li>
+			</ul>
         	</div>
-
         </div>
 </nav>
 
