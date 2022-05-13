@@ -55,7 +55,7 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
        $score = $score + 1 ;
     }
     else {
-     echo "<p> Your answer is incorect </p>" ;
+     echo "<p> Your answer for Question-1 is incorect </p>" ;
     }
 
      if (isset ($_POST["not_IOT_device"])) {
@@ -63,7 +63,7 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
      $score = $score + 1 ;
      }
      else {
-     echo "<p> Your answer is incorect </p>" ;
+     echo "<p> Your answer for Question-2 is incorect </p>" ;
      }
 
      if (isset ($_POST["built_on[]"])) {
@@ -71,7 +71,7 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
      $score = $score + 1 ;
      }
      else { 
-     echo "<p> Your answer is incorect </p>" ;
+     echo "<p> Your answer for Question-3 is incorect </p>" ;
      }
 
      if (isset ($_POST["device"])) {
@@ -79,17 +79,27 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
      $score = $score + 1 ;
      }
      else{ 
-     echo "<p> Your answer is incorect </p>" ;
+     echo "<p> Your answer for Question-4 is incorect </p>" ;
      }
+
 
      if (isset ($_POST["question5"])) {
      $questions[4] = $_POST["question5"] ;
      $score = $score + 1 ;
      }
      else { 
-     echo "<p> Your answer is incorect </p>" ;
+     echo "<p> Your answer for Question-5 is incorect </p>" ;
      }    
 
+    //  $attempts = 0
+    //  if $StudentID > 3 {
+    //  echo "<p> You have ($attempts-1) attempts left.</p>" ;
+    //  echo "<p> Refer back to the quiz : <a href=\"quiz.php\"> form</a></p> " ;
+    //  }
+    //  else {
+    // echo "You have reached the maximum limit to attempt this quiz."
+    //  }
+     
 
     $errMsg = "";
     $errMsg1 = "";
@@ -121,7 +131,7 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
         $errMsg2 = "<p> You must enter your Student ID. </p>";
     }
     else if  (!preg_match("/^[0-9]\d{7}|\d{10}$/",$StudentID))  {
-        $errMsg1 = "<p> Only numbers allowed in your student ID. </p>";
+        $errMsg1 = "<p> Only numbers allowed in your student ID within a range of 7 to 10 numbers. </p>";
     }
     if ($errMsg1 != "") {
         echo "<p> $errMsg1 </p>" ;
