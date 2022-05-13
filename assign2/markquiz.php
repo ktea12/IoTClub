@@ -10,6 +10,15 @@
 <body>
 <h1>Marked Quiz</h1>
 <?php
+$servername = "ictstu-db1.cc.swin.edu.au";
+$username = "s103815980";
+$password = "NNA_230802";
+$dbname = "s103815980_db";
+
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+?>
+<?php
     function sanities_input($data) {
         $data = trim($data);
         $data = stripslashes($data);
@@ -128,5 +137,34 @@
     }
 
 ?>
+<?php
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+  }
+  
+  $sql = "SELECT * FROM ATTEMPTS WHERE StudentID = " . $StudentID;
+  $result = mysqli_query($conn, $sql);
+  
+  if (mysqli_num_rows($result) < 3) {
+    // output data of each row
+    while($row = mysqli_fetch_assoc($result)) {
+      echo "id: " . $row["AttemptID"]. " attempt: " . $row["Attemptdate_time"]. " Name" . $row["FirstName"].  $row["LastName"]. $row["StudentID"] . "<br>";
+    }
+    $sql = "INSERT INTO ATTEMPTS (attemptdate_time, firstname, lastname, studentid, score)
+    VALUES ('" . date('Y-m-d H:i:s') . "','" . $FirstName . "','" . $LastName . "'," . $StudentID . "," . $score . ")";
+    //echo $sql;
+
+  if (mysqli_query($conn, $sql)) {
+     echo "New record created successfully";
+    } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    }
+    } else {
+         echo "Sorry you reach your limit and get lost";
+    }
+  
+  mysqli_close($conn);
+  ?>
 </body>
 </html>
