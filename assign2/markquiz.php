@@ -115,8 +115,8 @@
     else if  (!preg_match("/^[0-9]\d{7}|\d{10}$/",$StudentID))  {
         $errMsg1 = "<p> Only numbers allowed in your student ID within a range of 7 to 10 numbers. </p>";
     }
-    if ($errMsg1 != "") {
-        echo "<p> $errMsg1 </p>" ;
+    if ($errMsg2 != "") {
+        echo "<p> $errMsg2 </p>" ;
     }
 
     if ($errMsg != "") {
