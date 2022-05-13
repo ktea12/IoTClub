@@ -66,10 +66,10 @@
         $errMsg2 = "<p> You must enter your Student ID. </p>";
     }
     else if  (!preg_match("/^[0-9]\d{7}|\d{10}$/",$StudentID))  {
-        $errMsg1 = "<p> Only alpha letters and hyphen allowed in your last name.</p>";
+        $errMsg2 = "<p> Only alpha letters and hyphen allowed in your last name.</p>";
     }
-    if ($errMsg1 != "") {
-        echo "<p> $errMsg1 </p>" ;
+    if ($errMsg2 != "") {
+        echo "<p> $errMsg2 </p>" ;
     }
 
     if ($errMsg != "") {
