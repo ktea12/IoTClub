@@ -82,6 +82,15 @@
      echo "<p> Your answer for Question-5 is incorect </p>" ;
      }    
 
+    //  $attempts = 0
+    //  if $StudentID > 3 {
+    //  echo "<p> You have ($attempts-1) attempts left.</p>" ;
+    //  echo "<p> Refer back to the quiz : <a href=\"quiz.php\"> form</a></p> " ;
+    //  }
+    //  else {
+    // echo "You have reached the maximum limit to attempt this quiz."
+    //  }
+     
 
     $errMsg = "";
     $errMsg1 = "";
@@ -115,8 +124,8 @@
     else if  (!preg_match("/^[0-9]\d{7}|\d{10}$/",$StudentID))  {
         $errMsg1 = "<p> Only numbers allowed in your student ID within a range of 7 to 10 numbers. </p>";
     }
-    if ($errMsg2 != "") {
-        echo "<p> $errMsg2 </p>" ;
+    if ($errMsg1 != "") {
+        echo "<p> $errMsg1 </p>" ;
     }
 
     if ($errMsg != "") {
