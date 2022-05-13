@@ -104,7 +104,7 @@ to a web page. They can also clear their answers.-->
             <legend><strong>Question 5</strong></legend>
             <p>
                 <label for = "slider">In 2019, there were an estimated average of 11 IOT devices per household. <br> What do you think this number is in 2022*?</label><br>
-                <input type = "range" min = "1" max = "5" value = "3" class = "slider" id = "slider"><br>
+                <input type = "range" name = "question5" min = "1" max = "5" value = "3" class = "slider" id = "slider"><br>
                 <label for = "slider">8 &nbsp; 11 &nbsp; 19 &nbsp; 25 &nbsp; 70</label><br>
                 *Note that values are only estimates and vary based on source.
             </p>
@@ -115,10 +115,7 @@ to a web page. They can also clear their answers.-->
 
     </form>
     </div>
-<footer>
-    <em>"The IoT Club" aims to provide the best possible information on the technology "Internet of Things".<br>
-        Contact us:</em> <br>
-    &copy; <a href="mailto=103802047@student.swin.edu.au">IoT Club Email</a>
-</footer>
+    <?php
+        include_once "footer.inc"?>;
 </body>
 </html>

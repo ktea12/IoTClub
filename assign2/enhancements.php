@@ -4,6 +4,7 @@
 <html lang="en">
 <head>
  <link rel="stylesheet" href="styles/enhancements.css">
+ <link rel="stylesheet" href="styles/style.css">
  <meta charset="UTF-8">
  <meta name="description" content="IoT Website">
  <meta name="keywords" content="HTML, CSS, Enhancements, IOT">
@@ -109,10 +110,7 @@
             });
         });
     </script>
-<footer>
-    <em>"The IoT Club" aims to provide the best possible information on the technology "Internet of Things".<br>
-        Contact us:</em> <br>
-    &copy; <a href="mailto=103802047@student.swin.edu.au">IoT Club Email</a>
-</footer>
+    <?php
+        include_once "footer.inc"?>;
 </body>
 </html>
