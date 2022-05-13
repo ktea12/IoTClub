@@ -26,7 +26,9 @@
 
     if (isset ($_POST["FirstName"]))
         $FirstName = $_POST["FirstName"];
-
+    else { 
+        header ("location quiz.php") ;
+    }
     if (isset ($_POST["LastName"]))
         $LastName = $_POST["LastName"];
         
@@ -35,6 +37,50 @@
     
     if (isset ($_POST["device"]))
         $device = $_POST["device"];
+
+    $score = 0;
+    $questions = array ("Kevin Ashton", "A laptop", "Data gathering", "Sensor", "19") ;
+    
+    if (isset ($_POST["coined"])){
+       $questions[0] = $_POST["coined"] ;
+       $score = $score + 1 ;
+    }
+    else {
+     echo "<p> Your answer is incorect </p>" ;
+    }
+
+     if (isset ($_POST["not_IOT_device"])) {
+     $questions[1] = $_POST["not_IOT_device"] ;
+     $score = $score + 1 ;
+     }
+     else {
+     echo "<p> Your answer is incorect </p>" ;
+     }
+
+     if (isset ($_POST["built_on[]"])) {
+     $questions[2] = $_POST["built_on[]"] ;
+     $score = $score + 1 ;
+     }
+     else { 
+     echo "<p> Your answer is incorect </p>" ;
+     }
+
+     if (isset ($_POST["device"])) {
+     $questions[3] = $_POST["device"] ;
+     $score = $score + 1 ;
+     }
+     else{ 
+     echo "<p> Your answer is incorect </p>" ;
+     }
+
+     if (isset ($_POST["question5"])) {
+     $questions[4] = $_POST["question5"] ;
+     $score = $score + 1 ;
+     }
+     else { 
+     echo "<p> Your answer is incorect </p>" ;
+     }    
+
 
     $errMsg = "";
     $errMsg1 = "";
@@ -45,8 +91,8 @@
     if ($FirstName =="")  {
         $errMsg = "<p> You must enter your first name. </p>";
     }
-    else if  (!preg_match("/^[a-zA-Z-]{1,30}$/",$FirstName))  {
-        $errMsg = "<p> Only alpha letters and hyphen allowed in your first name.</p>";
+    else if  (!preg_match("/^[a-zA-Z- ]{1,30}$/",$FirstName))  {
+        $errMsg = "<p> Only alpha letters, hyphen and space allowed in your first name.</p>";
     }
     if ($errMsg != "") {
         echo "<p> $errMsg </p>" ;
@@ -55,8 +101,8 @@
     if ($LastName =="")  {
         $errMsg1 = "<p> You must enter your last name. </p>";
     }
-    else if  (!preg_match("/^[a-zA-Z-]{1,30}$/",$Lastname))  {
-        $errMsg1 = "<p> Only alpha letters and hyphen allowed in your last name.</p>";
+    else if  (!preg_match("/^[a-zA-Z- ]{1,30}$/",$LastName))  {
+        $errMsg1 = "<p> Only alpha letters, hyphen and space allowed in your last name.</p>";
     }
     if ($errMsg1 != "") {
         echo "<p> $errMsg1 </p>" ;
@@ -66,7 +112,7 @@
         $errMsg2 = "<p> You must enter your Student ID. </p>";
     }
     else if  (!preg_match("/^[0-9]\d{7}|\d{10}$/",$StudentID))  {
-        $errMsg1 = "<p> Only alpha letters and hyphen allowed in your last name.</p>";
+        $errMsg1 = "<p> Only numbers allowed in your student ID. </p>";
     }
     if ($errMsg1 != "") {
         echo "<p> $errMsg1 </p>" ;
@@ -76,13 +122,11 @@
         echo "<p>$errMsg<p>";
     }
     else {
-    echo "<p>Welcome $firstname $lastname ! <br/>
-    You are now booked on the $tour <br/> 
-    Species: $species <br/>
-    Age: $age <br/>
-    Meal Preference: $food <br/>
-    Number of travellers: $partySize</p>";
+    echo "<p>Welcome $FirstName $LastName ! <br/>
+    Student ID: $StudentID <br/>
+    You have achieved a score of $score <br/> </p>";
     }
+
 ?>
 </body>
 </html>
