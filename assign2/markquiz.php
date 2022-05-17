@@ -11,9 +11,16 @@
 <h1>Marked Quiz</h1>
 <?php
 $servername = "ictstu-db1.cc.swin.edu.au";
-$username = "s103815980";
-$password = "NNA_230802";
-$dbname = "s103815980_db";
+$username = "s103486878";
+$password = "300303";
+$dbname = "s103486878_db";
+
+// $username = "s103815980";
+// $password = "NNA_230802";
+// $dbname = "s103815980_db";
+
+// Check the index for attempts
+// Check answer for Question3 
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -27,6 +34,7 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
     }
 ?>
 
+<!-- sanitise input -->
 <?php
     $FirstName = sanities_input($_POST["FirstName"]);
     $LastName = sanities_input($_POST["LastName"]);
@@ -90,17 +98,8 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
      else { 
      echo "<p> Your answer for Question-5 is incorect </p>" ;
      }    
-
-    //  $attempts = 0
-    //  if $StudentID > 3 {
-    //  echo "<p> You have ($attempts-1) attempts left.</p>" ;
-    //  echo "<p> Refer back to the quiz : <a href=\"quiz.php\"> form</a></p> " ;
-    //  }
-    //  else {
-    // echo "You have reached the maximum limit to attempt this quiz."
-    //  }
-     
-
+    
+    //  Checking input validation
     $errMsg = "";
     $errMsg1 = "";
     $errMsg2 = "";
@@ -140,13 +139,16 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
     if ($errMsg != "") {
         echo "<p>$errMsg<p>";
     }
-
+    
+    // Displaying message
     else {
-       
+        $sql = "SELECT * FROM ATTEMPTS WHERE StudentID = " . $StudentID;
+        $result = mysqli_query($conn, $sql);
+        $attempt = mysqli_num_rows($result) ;
     echo "<p>Welcome $FirstName $LastName ! <br/>
     Student ID: $StudentID <br/>
-    You have achieved a score of $score <br/>;
-    You had $attempt attempts. </p>";
+    You have achieved a score of $score <br/>
+    You had $attempt attempts for this quiz. </p>";
     }
 
 ?>
@@ -155,7 +157,17 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
   }
-$query = ""
+
+// Creating table if does not exist as a database,
+$query = " CREATE TABLE IF NOT EXISTS `ATTEMPTS` (
+    `AttemptID` int(11) PRIMARY KEY AUTO_INCREMENT,
+    `Attemptdate_time` datetime ,
+    `FirstName` varchar(20) ,
+    `LastName` varchar(20) ,
+    `StudentID` int(8) ,
+    `NumberofAttempts` tinyint(4) ,
+    `Score` int(11) 
+  ); " ;
 
 $results = mysqli_query($conn, $sql);
 if ($result){
@@ -163,23 +175,25 @@ if ($result){
 $sql = "SELECT * FROM ATTEMPTS WHERE StudentID = " . $StudentID;
 $result = mysqli_query($conn, $sql);
 $attempt = mysqli_num_rows($result) ;
- 
+
   if ($attempt < 3) {
     // output data of each row
     while($row = mysqli_fetch_assoc($result)) {
-      echo "id: " . $row["AttemptID"]. " attempt: " . $row["Attemptdate_time"]. " Name" . $row["FirstName"].  $row["LastName"]. $row["StudentID"] . "<br>";
+      echo "StudentId: " . $row["StudentID"].  " Name " . $row["FirstName"].  $row["LastName"]. " Attempt Date and Time: " . $row["Attemptdate_time"].  "<br>";
+      echo "<p>You have more attempts left for the Quiz. Please refer back to the Quiz page . </p>" ;
     }
-    $sql = "INSERT INTO ATTEMPTS (attemptdate_time, firstname, lastname, studentid, score)
-    VALUES ('" . date('Y-m-d H:i:s') . "','" . $FirstName . "','" . $LastName . "'," . $StudentID . "," . $score . ")";
+    // <a href="assign2/quiz.php">
+    $sql = "INSERT INTO ATTEMPTS (attemptdate_time, firstname, lastname, studentid, NumberofAttempts, score)
+    VALUES ('" . date('Y-m-d H:i:s') . "','" . $FirstName . "','" . $LastName . "','" . $StudentID . "', '" . $attempt . "' , '" . $score . "' ) ";
     //echo $sql;
 
   if (mysqli_query($conn, $sql)) {
-     echo "New record created successfully";
+     echo " New record created successfully";
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
     } else {
-         echo "Sorry you reach your limit and get lost";
+         echo "You have reached maximum limits of attempts for this quiz.";
     }
 }
   mysqli_close($conn);
