@@ -140,10 +140,13 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
     if ($errMsg != "") {
         echo "<p>$errMsg<p>";
     }
+
     else {
+       
     echo "<p>Welcome $FirstName $LastName ! <br/>
     Student ID: $StudentID <br/>
-    You have achieved a score of $score <br/> </p>";
+    You have achieved a score of $score <br/>;
+    You had $attempt attempts. </p>";
     }
 
 ?>
@@ -152,11 +155,16 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
   }
-  
-  $sql = "SELECT * FROM ATTEMPTS WHERE StudentID = " . $StudentID;
-  $result = mysqli_query($conn, $sql);
-  
-  if (mysqli_num_rows($result) < 3) {
+$query = ""
+
+$results = mysqli_query($conn, $sql);
+if ($result){
+
+$sql = "SELECT * FROM ATTEMPTS WHERE StudentID = " . $StudentID;
+$result = mysqli_query($conn, $sql);
+$attempt = mysqli_num_rows($result) ;
+ 
+  if ($attempt < 3) {
     // output data of each row
     while($row = mysqli_fetch_assoc($result)) {
       echo "id: " . $row["AttemptID"]. " attempt: " . $row["Attemptdate_time"]. " Name" . $row["FirstName"].  $row["LastName"]. $row["StudentID"] . "<br>";
@@ -173,7 +181,7 @@ if (!$conn) {
     } else {
          echo "Sorry you reach your limit and get lost";
     }
-  
+}
   mysqli_close($conn);
   ?>
 </body>
