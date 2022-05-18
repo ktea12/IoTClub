@@ -188,7 +188,7 @@ $attempt = mysqli_num_rows($result) ;
  echo "<p>Welcome $FirstName $LastName ! <br/>
  Student ID: $StudentID <br/>
  You have achieved a score of $score <br/>
- You had ", $attempt, " attempts for this quiz </p>";
+ You had ", $attempt+1, " attempts for this quiz </p>";
 
      if ($attempt < 2) {
         // output data of each row
