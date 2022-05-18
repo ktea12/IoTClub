@@ -13,6 +13,10 @@
 
 <body>
     <?php
+        $host = "ictstu-db1.cc.swin.edu.au";
+        $user = "s103486878";
+        $pwd = "300303";
+        $sql_db = "s103486878_db";
         $page = "manage";
         include_once ("header.inc");
 
