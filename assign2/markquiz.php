@@ -63,7 +63,7 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
        $score = $score + 1 ;
     }
     else {
-     echo "<p> Your answer for Question-1 is incorect </p>" ;
+     echo "<p> Your answer for Question-1 is incorrect </p>" ;
     }
 
      if (isset ($_POST["not_IOT_device"])) {
@@ -71,7 +71,7 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
      $score = $score + 1 ;
      }
      else {
-     echo "<p> Your answer for Question-2 is incorect </p>" ;
+     echo "<p> Your answer for Question-2 is incorrect </p>" ;
      }
 
      if (isset ($_POST["built_on[]"])) {
@@ -79,7 +79,7 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
      $score = $score + 1 ;
      }
      else { 
-     echo "<p> Your answer for Question-3 is incorect </p>" ;
+     echo "<p> Your answer for Question-3 is incorrect </p>" ;
      }
 
      if (isset ($_POST["device"])) {
@@ -87,7 +87,7 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
      $score = $score + 1 ;
      }
      else{ 
-     echo "<p> Your answer for Question-4 is incorect </p>" ;
+     echo "<p> Your answer for Question-4 is incorrect </p>" ;
      }
 
 
@@ -96,7 +96,7 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
      $score = $score + 1 ;
      }
      else { 
-     echo "<p> Your answer for Question-5 is incorect </p>" ;
+     echo "<p> Your answer for Question-5 is incorrect </p>" ;
      }    
     
     //  Checking input validation
