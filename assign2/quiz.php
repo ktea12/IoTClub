@@ -116,6 +116,6 @@ to a web page. They can also clear their answers.-->
     </form>
     </div>
     <?php
-        include_once "footer.inc"?>;
+        include_once "footer.inc"?>
 </body>
 </html>
