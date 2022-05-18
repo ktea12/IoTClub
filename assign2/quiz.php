@@ -54,10 +54,10 @@ to a web page. They can also clear their answers.-->
             <legend><strong>Question 1</strong></legend>
             <p>
                 <select name="coined" id="coined">
-                    <option value="gates">Bill Gates</option>			
-                    <option value="lewis">Peter Lewis</option>
-                    <option value="ashton">Kevin Ashton</option>
-                    <option value="weiser">Mark Weiser</option>
+                    <option value="Bill Gates">Bill Gates</option>			
+                    <option value="Peter Lewis">Peter Lewis</option>
+                    <option value="Kevin Ashton">Kevin Ashton</option>
+                    <option value="Mark Weiser">Mark Weiser</option>
                 </select>
                 <label for="coined"> coined the term "Internet of Things".</label> 
             </p>
@@ -68,10 +68,10 @@ to a web page. They can also clear their answers.-->
             <legend><strong>Question 2</strong></legend>
             <p>
                 <label for="not_IOT_device">Which of the following is <strong>not</strong> an IOT device?</label><br>
-                <label><input type="radio" name="not_IOT_device" value="laptop">A laptop</label>
-                <label><input type="radio" name="not_IOT_device" value="shark" required="required">Shark tag</label>
-				<label><input type="radio" name="not_IOT_device" value="google">Google Home</label>
-				<label><input type="radio" name="not_IOT_device" value="smoke">Nest smoke alarm</label>
+                <label><input type="radio" name="not_IOT_device" value="A laptop">A laptop</label>
+                <label><input type="radio" name="not_IOT_device" value="A shark tag" required="required">Shark tag</label>
+				<label><input type="radio" name="not_IOT_device" value="Google Home">Google Home</label>
+				<label><input type="radio" name="not_IOT_device" value="Nest Smoke Alarm">Nest smoke alarm</label>
             </p>
         </fieldset>
         
@@ -81,11 +81,11 @@ to a web page. They can also clear their answers.-->
             <p>
                 <label>Which of the following is IoT built upon <strong>(Select all that apply)</strong></label><br>
                 <!-- &nbsp; is used to create space between options.-->
-                <label><input type="checkbox" name="built_on[]" value="raid" checked>RAID configurations &nbsp;</label>
-                <label><input type="checkbox" name="built_on[]" value="cloud">Cloud computing &nbsp;</label>
-                <label><input type="checkbox" name="built_on[]" value="data">Data gathering sensors &nbsp;</label>
-                <label><input type="checkbox" name="built_on[]" value="intdevice">Interconnected devices &nbsp;</label>
-                <label><input type="checkbox" name="built_on[]" value="fridges">Smart fridges</label>
+                <label><input type="checkbox" name="built_on[]" value="RAID configurations" checked>RAID configurations &nbsp;</label>
+                <label><input type="checkbox" name="built_on[]" value="Cloud computing">Cloud computing &nbsp;</label>
+                <label><input type="checkbox" name="built_on[]" value="Data gathering sensors">Data gathering sensors &nbsp;</label>
+                <label><input type="checkbox" name="built_on[]" value="Interconnected devices">Interconnected devices &nbsp;</label>
+                <label><input type="checkbox" name="built_on[]" value="Smart fridges">Smart fridges</label>
             </p>
         </fieldset>
 
