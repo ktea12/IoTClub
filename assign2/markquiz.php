@@ -137,19 +137,11 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
     }
 
     if ($errMsg != "") {
-        echo "<p>$errMsg<p>";
+        echo "<p>$errMsg<p>"; exit();
     }
     
     // Displaying message
-    else {
-        $sql = "SELECT * FROM ATTEMPTS WHERE StudentID = " . $StudentID;
-        $result = mysqli_query($conn, $sql);
-        $attempt = mysqli_num_rows($result) ;
-    echo "<p>Welcome $FirstName $LastName ! <br/>
-    Student ID: $StudentID <br/>
-    You have achieved a score of $score <br/>
-    You had $attempt attempts for this quiz. </p>";
-    }
+
 
 ?>
 <?php
@@ -169,32 +161,50 @@ $query = " CREATE TABLE IF NOT EXISTS `ATTEMPTS` (
     `Score` int(11) 
   ); " ;
 
-$results = mysqli_query($conn, $sql);
-if ($result){
+$results = mysqli_query($conn, $query);
+if ($results){
 
 $sql = "SELECT * FROM ATTEMPTS WHERE StudentID = " . $StudentID;
 $result = mysqli_query($conn, $sql);
 $attempt = mysqli_num_rows($result) ;
 
-  if ($attempt < 3) {
-    // output data of each row
-    while($row = mysqli_fetch_assoc($result)) {
-      echo "StudentId: " . $row["StudentID"].  " Name " . $row["FirstName"].  $row["LastName"]. " Attempt Date and Time: " . $row["Attemptdate_time"].  "<br>";
-      echo "<p>You have more attempts left for the Quiz. Please refer back to the Quiz page . </p>" ;
-    }
+  
     // <a href="assign2/quiz.php">
-    $sql = "INSERT INTO ATTEMPTS (attemptdate_time, firstname, lastname, studentid, NumberofAttempts, score)
-    VALUES ('" . date('Y-m-d H:i:s') . "','" . $FirstName . "','" . $LastName . "','" . $StudentID . "', '" . $attempt . "' , '" . $score . "' ) ";
-    //echo $sql;
+    if ($attempt == 2) {
+        echo "You have reached maximum limits of attempts for this quiz."; exit();
+   } 
+   else {
+    $attempt = $attempt+1;
+    $sql = "INSERT INTO ATTEMPTS (attemptdate_time, firstname, lastname, studentid, NumberofAttempts, score) " .
+    "VALUES ('" . date('Y-m-d H:i:s') . "','$FirstName','$LastName', $StudentID, $attempt, $score) ";
+    // echo $sql;
+
+  
 
   if (mysqli_query($conn, $sql)) {
      echo " New record created successfully";
+
+     
+ echo "<p>Welcome $FirstName $LastName ! <br/>
+ Student ID: $StudentID <br/>
+ You have achieved a score of $score <br/>
+ You had ", $attempt, " attempts for this quiz </p>";
+
+     if ($attempt < 2) {
+        // output data of each row
+        // while($row = mysqli_fetch_assoc($result)) {
+        //   echo "StudentId: " . $row["StudentID"].  " Name " . $row["FirstName"].  $row["LastName"]. " Attempt Date and Time: " . $row["Attemptdate_time"].  "<br>";
+          echo "You still have attempts left for this quiz. </p>";
+          echo "<p>Please refer back to the <a href='quiz.php'>Quiz page .</a>  </p>" ;
+      }
+   
+
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
-    } else {
-         echo "You have reached maximum limits of attempts for this quiz.";
-    }
+  
+
+}
 }
   mysqli_close($conn);
   ?>
