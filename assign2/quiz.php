@@ -37,12 +37,12 @@ to a web page. They can also clear their answers.-->
             <p id="quiz_details">
                 <label for="FirstName">Name</label>
                     <!-- Pattern ensures that input is in the alphabet, or is a hyphen or space. + allows for more than 1 character. -->
-                    <input type = "text" name = "FirstName" value="FirstName" id = "FirstName" required = "required" minlength = "1" maxlength = "30" pattern="[A-Za-z- ]+"/><br>
+                    <input type = "text" name = "FirstName" id = "FirstName" required = "required" minlength = "1" maxlength = "30" pattern="[A-Za-z- ]+"/><br>
                 <label for="LastName">Surname</label>
-                    <input type = "text" name = "LastName" value="LastName" id = "LastName" required = "required" minlength = "1" maxlength = "30" pattern="[A-Za-z- ]+"/><br>
+                    <input type = "text" name = "LastName" id = "LastName" required = "required" minlength = "1" maxlength = "30" pattern="[A-Za-z- ]+"/><br>
                 <label for="StudentID">Student ID</label> 
                     <!-- Pattern allows only digits and either 7 or 10 long.-->
-                    <input type = "text" name = "StudentID" value="StudentID" id = "StudentID" required = "required" maxlength = "10" pattern="\d{7}|\d{10}"/>
+                    <input type = "text" name = "StudentID" id = "StudentID" required = "required" maxlength = "10" pattern="\d{7}|\d{10}"/>
             </p>
         </fieldset>
         <br>
@@ -94,7 +94,7 @@ to a web page. They can also clear their answers.-->
             <legend><strong>Question 4</strong></legend>
             <p>
                 <label for ="device">A</label>
-                <input type = "text" name = "device" id = "device" value="device" required = "required" minlength = "1" placeholder="????"/>
+                <input type = "text" name = "device" id = "device" required = "required" minlength = "1" placeholder="????"/>
                 <label for ="device">is a device that detects external information and creates a signal recognisable by people or machines</label>
             </p>
         </fieldset>
