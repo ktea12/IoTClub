@@ -33,7 +33,6 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
         return $data;
     }
 ?>
-
 <!-- sanitise input -->
 <?php
     $FirstName = sanities_input($_POST["FirstName"]);
@@ -41,174 +40,132 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
     $StudentID = sanities_input($_POST["StudentID"]);
     $device = sanities_input($_POST["device"]);
 
-    if (isset ($_POST["FirstName"]))
-        $FirstName = $_POST["FirstName"];
-    else { 
-        header ("location quiz.php") ;
-    }
-    if (isset ($_POST["LastName"]))
-        $LastName = $_POST["LastName"];
-        
-    if (isset ($_POST["StudentID"]))
-        $StudentID = $_POST["StudentID"];
-    
-    if (isset ($_POST["device"]))
-        $device = $_POST["device"];
+    $valid = true; // Used to check if program should continue - no if bad input
+    if ((!isset ($FirstName) or $FirstName == "") or (!isset ($LastName) or $LastName == "") or (!isset ($StudentID) or $StudentID == "")) {
+        echo "<p>Error with student details.</p>";
 
+        //  Specific error messages   
+        if ($FirstName =="")  {
+            echo "<p> You must enter your first name. </p>";
+        }
+        else if  (!preg_match("/^[a-zA-Z- ]{1,30}$/",$FirstName))  {
+            echo "<p> Only alpha letters, hyphen and space allowed in your first name.</p>";
+        }
+
+        if ($LastName =="")  {
+            echo "<p> You must enter your last name. </p>";
+        }
+        else if  (!preg_match("/^[a-zA-Z- ]{1,30}$/",$LastName))  {
+            echo "<p> Only alpha letters, hyphen and space allowed in your last name.</p>";
+        }
+    
+        if ($StudentID =="")  {
+            echo "<p> You must enter your Student ID. </p>";
+        }
+        else if  (!preg_match("/^[0-9]\d{7}|\d{10}$/",$StudentID))  {
+            echo "<p> Only numbers allowed in your student ID within a range of 7 to 10 numbers. </p>";
+        }
+
+        echo "<p>Please refer back to the <a href='quiz.php'>Quiz page .</a>  </p>" ;
+        $valid = false;
+    }
 
 ?>
 
 <?php
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-  }
-
-// Creating table if does not exist as a database,
-$query = " CREATE TABLE IF NOT EXISTS `ATTEMPTS` (
-    `AttemptID` int(11) PRIMARY KEY AUTO_INCREMENT,
-    `Attemptdate_time` datetime ,
-    `FirstName` varchar(20) ,
-    `LastName` varchar(20) ,
-    `StudentID` int(8) ,
-    `NumberofAttempts` tinyint(4) ,
-    `Score` int(11) 
-  ); " ;
-
-$results = mysqli_query($conn, $query);
-if ($results){
-
-$sql = "SELECT * FROM ATTEMPTS WHERE StudentID = " . $StudentID;
-$result = mysqli_query($conn, $sql);
-$attempt = mysqli_num_rows($result) ;
-
-  
-    // <a href="assign2/quiz.php">
-    if ($attempt > 1) {
-        echo "You have reached maximum limits of attempts for this quiz."; exit();
-   } 
-    else {
-        $score = 0;
-        $questions = array ("Kevin Ashton", "A laptop", ["Cloud computing", "Data gathering sensors", "Interconnected devices"], "sensor", 3) ;
-        
-        # Question 1:
-        if ($questions[0] == $_POST["coined"]){
-           $score = $score + 1 ;
-           echo "<p>Question 1: ✅</p>";
-        }
-        else {
-            echo "<p>Question 1: ❌</p>";
-        }
-    
-        # Question 2:
-        if ($questions[1] == $_POST["not_IOT_device"]) {
-            $score = $score + 1 ;
-            echo "<p>Question 2: ✅</p>";
-        }
-        else {
-            echo "<p>Question 2: ❌</p>";
-        }
-    
-        # Question 3:
-        if ($questions[2] == $_POST["built_on"]) {
-            $score = $score + 1 ;
-            echo "<p>Question 3: ✅</p>";
-    
-        }
-        else { 
-            echo "<p>Question 3: ❌</p>";
-        }
-    
-        # Question 4:
-        if ($questions[3] == strtolower(trim($_POST["device"]))) {
-            $score = $score + 1 ;
-            echo "<p>Question 4: ✅</p>";
-        }
-        else{ 
-            echo "<p>Question 4: ❌</p>";
-        }
-    
-        # Question 5:
-        if ($questions[4] == $_POST["question5"]) {
-            $score = $score + 1 ;
-            echo "<p>Question 5: ✅</p>";
-        }
-        else { 
-            echo "<p>Question 5: ❌</p>";
-        }    
-        
-        //  Checking input validation
-        $errMsg = "";
-        $errMsg1 = "";
-        $errMsg2 = "";
-        $errMsg3 = "";
-        $errMsg4 = "";
-    
-        if ($FirstName =="")  {
-            $errMsg = "<p> You must enter your first name. </p>";
-        }
-        else if  (!preg_match("/^[a-zA-Z- ]{1,30}$/",$FirstName))  {
-            $errMsg = "<p> Only alpha letters, hyphen and space allowed in your first name.</p>";
-        }
-        if ($errMsg != "") {
-            echo "<p> $errMsg </p>" ;
-        }
-    
-        if ($LastName =="")  {
-            $errMsg1 = "<p> You must enter your last name. </p>";
-        }
-        else if  (!preg_match("/^[a-zA-Z- ]{1,30}$/",$LastName))  {
-            $errMsg1 = "<p> Only alpha letters, hyphen and space allowed in your last name.</p>";
-        }
-        if ($errMsg1 != "") {
-            echo "<p> $errMsg1 </p>" ;
-        }
-    
-        if ($StudentID =="")  {
-            $errMsg2 = "<p> You must enter your Student ID. </p>";
-        }
-        else if  (!preg_match("/^[0-9]\d{7}|\d{10}$/",$StudentID))  {
-            $errMsg1 = "<p> Only numbers allowed in your student ID within a range of 7 to 10 numbers. </p>";
-        }
-        if ($errMsg1 != "") {
-            echo "<p> $errMsg1 </p>" ;
-        }
-    
-        if ($errMsg != "") {
-            echo "<p>$errMsg<p>"; exit();
-        }
-    $attempt = $attempt+1;
-    $sql = "INSERT INTO ATTEMPTS (attemptdate_time, firstname, lastname, studentid, NumberofAttempts, score) " .
-    "VALUES ('" . date('Y-m-d H:i:s') . "','$FirstName','$LastName', $StudentID, $attempt, $score) ";
-    // echo $sql;
-
-  
-
-  if (mysqli_query($conn, $sql)) {
-    echo " New record created successfully";
-   
-    echo "<p>Welcome $FirstName $LastName! <br/>
-    Student ID: $StudentID <br/>
-    You have achieved a score of $score <br/>
-    You have ", abs(2 - $attempt) , " attempt(s) remaining for this quiz</p>";
-
-     if ($attempt < 2) {
-        // output data of each row
-        // while($row = mysqli_fetch_assoc($result)) {
-        //   echo "StudentId: " . $row["StudentID"].  " Name " . $row["FirstName"].  $row["LastName"]. " Attempt Date and Time: " . $row["Attemptdate_time"].  "<br>";
-          // echo "You still have attempts left for this quiz. </p>";
-          echo "<p>Please refer back to the <a href='quiz.php'>Quiz page .</a>  </p>" ;
-      }
-   
-
-    } else {
-        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+if ($valid){
+    // Check connection
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
     }
-  
 
+    // Creating table if does not exist as a database,
+    $query = " CREATE TABLE IF NOT EXISTS `ATTEMPTS` (
+        `AttemptID` int(11) PRIMARY KEY AUTO_INCREMENT,
+        `Attemptdate_time` datetime ,
+        `FirstName` varchar(20) ,
+        `LastName` varchar(20) ,
+        `StudentID` int(8) ,
+        `NumberofAttempts` tinyint(4) ,
+        `Score` int(11) 
+    ); " ;
+
+    $results = mysqli_query($conn, $query);
+    if ($results){
+
+        $sql = "SELECT * FROM ATTEMPTS WHERE StudentID = " . $StudentID;
+        $result = mysqli_query($conn, $sql);
+        $attempt = mysqli_num_rows($result) ;
+        
+        // <a href="assign2/quiz.php">
+        if ($attempt > 1) {
+            echo "You have reached maximum limits of attempts for this quiz."; exit();
+        } 
+        else {
+            $score = 0;
+            $questions = array ("Kevin Ashton", "A laptop", ["Cloud computing", "Data gathering sensors", "Interconnected devices"], "sensor", 3) ;
+            
+            # Question 1:
+            if ($questions[0] == $_POST["coined"]){
+            $score = $score + 1 ;
+            echo "<p>Question 1: ✅</p>";
+            }
+            else {
+                echo "<p>Question 1: ❌</p>";
+            }
+        
+            # Question 2:
+            if ($questions[1] == $_POST["not_IOT_device"]) {
+                $score = $score + 1 ;
+                echo "<p>Question 2: ✅</p>";
+            }
+            else {
+                echo "<p>Question 2: ❌</p>";
+            }
+        
+            # Question 3:
+            if ($questions[2] == $_POST["built_on"]) {
+                $score = $score + 1 ;
+                echo "<p>Question 3: ✅</p>";
+        
+            }
+            else { 
+                echo "<p>Question 3: ❌</p>";
+            }
+        
+            # Question 4:
+            if ($questions[3] == strtolower(trim($_POST["device"]))) {
+                $score = $score + 1 ;
+                echo "<p>Question 4: ✅</p>";
+            }
+            else{ 
+                echo "<p>Question 4: ❌</p>";
+            }
+        
+            # Question 5:
+            if ($questions[4] == $_POST["question5"]) {
+                $score = $score + 1 ;
+                echo "<p>Question 5: ✅</p>";
+            }
+            else { 
+                echo "<p>Question 5: ❌</p>";
+            }    
+        }
+      
+        $attempt = $attempt+1;
+        $sql = "INSERT INTO ATTEMPTS (attemptdate_time, firstname, lastname, studentid, NumberofAttempts, score) " .
+        "VALUES ('" . date('Y-m-d H:i:s') . "','$FirstName','$LastName', $StudentID, $attempt, $score) ";
+    }
+    if (mysqli_query($conn, $sql)) {
+    
+        echo "<p>Welcome $FirstName $LastName! <br/>
+        Student ID: $StudentID <br/>
+        You have achieved a score of $score <br/>
+        You have ", abs(2 - $attempt) , " attempt(s) remaining for this quiz</p>";
+
+    }
+    mysqli_close($conn);
 }
-}
-  mysqli_close($conn);
-  ?>
+?>
 </body>
 </html>

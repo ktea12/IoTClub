@@ -39,6 +39,5 @@
 <hr>
     <?php
         include_once "footer.inc"?>;
-    ?>
   </body>
 </html>
