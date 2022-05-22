@@ -71,7 +71,7 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
     }
 
 ?>
-
+<?php error_reporting (E_ALL ^ E_NOTICE); ?> 
 <?php
 if ($valid){
     // Check connection
@@ -79,92 +79,112 @@ if ($valid){
         die("Connection failed: " . mysqli_connect_error());
     }
 
-    // Creating table if does not exist as a database,
-    $query = " CREATE TABLE IF NOT EXISTS `ATTEMPTS` (
-        `AttemptID` int(11) PRIMARY KEY AUTO_INCREMENT,
-        `Attemptdate_time` datetime ,
-        `FirstName` varchar(20) ,
-        `LastName` varchar(20) ,
-        `StudentID` int(8) ,
-        `NumberofAttempts` tinyint(4) ,
-        `Score` int(11) 
-    ); " ;
-
-    $results = mysqli_query($conn, $query);
-    if ($results){
-
-        $sql = "SELECT * FROM ATTEMPTS WHERE StudentID = " . $StudentID;
-        $result = mysqli_query($conn, $sql);
-        $attempt = mysqli_num_rows($result) ;
-        
-        // <a href="assign2/quiz.php">
-        if ($attempt > 1) {
-            echo "You have reached maximum limits of attempts for this quiz."; exit();
-        } 
-        else {
-            $score = 0;
-            $questions = array ("Kevin Ashton", "A laptop", ["Cloud computing", "Data gathering sensors", "Interconnected devices"], "sensor", 3) ;
-            
-            # Question 1:
-            if ($questions[0] == $_POST["coined"]){
-            $score = $score + 1 ;
-            echo "<p>Question 1: ✅</p>";
-            }
-            else {
-                echo "<p>Question 1: ❌</p>";
-            }
-        
-            # Question 2:
-            if ($questions[1] == $_POST["not_IOT_device"]) {
-                $score = $score + 1 ;
-                echo "<p>Question 2: ✅</p>";
-            }
-            else {
-                echo "<p>Question 2: ❌</p>";
-            }
-        
-            # Question 3:
-            if ($questions[2] == $_POST["built_on"]) {
-                $score = $score + 1 ;
-                echo "<p>Question 3: ✅</p>";
-        
-            }
-            else { 
-                echo "<p>Question 3: ❌</p>";
-            }
-        
-            # Question 4:
-            if ($questions[3] == strtolower(trim($_POST["device"]))) {
-                $score = $score + 1 ;
-                echo "<p>Question 4: ✅</p>";
-            }
-            else{ 
-                echo "<p>Question 4: ❌</p>";
-            }
-        
-            # Question 5:
-            if ($questions[4] == $_POST["question5"]) {
-                $score = $score + 1 ;
-                echo "<p>Question 5: ✅</p>";
-            }
-            else { 
-                echo "<p>Question 5: ❌</p>";
-            }    
-        }
-      
-        $attempt = $attempt+1;
-        $sql = "INSERT INTO ATTEMPTS (attemptdate_time, firstname, lastname, studentid, NumberofAttempts, score) " .
-        "VALUES ('" . date('Y-m-d H:i:s') . "','$FirstName','$LastName', $StudentID, $attempt, $score) ";
-    }
-    if (mysqli_query($conn, $sql)) {
     
-        echo "<p>Welcome $FirstName $LastName! <br/>
-        Student ID: $StudentID <br/>
-        You have achieved a score of $score <br/>
-        You have ", abs(2 - $attempt) , " attempt(s) remaining for this quiz</p>";
-
+    $questions_valid = true; // Used to check if all questions are set
+    $_POST["device"] = strtolower(trim($_POST["device"]));
+    if (!$_POST["built_on"]){
+        $questions_valid = false;
     }
-    mysqli_close($conn);
+    foreach( $_POST as $answer ) {  
+        if($answer == "") {
+            $questions_valid = false;
+        }
+    }
+
+    
+
+
+    
+    if ($questions_valid){
+        // Creating table if does not exist as a database,
+        $query = " CREATE TABLE IF NOT EXISTS `ATTEMPTS` (
+            `AttemptID` int(11) PRIMARY KEY AUTO_INCREMENT,
+            `Attemptdate_time` datetime ,
+            `FirstName` varchar(20) ,
+            `LastName` varchar(20) ,
+            `StudentID` int(8) ,
+            `NumberofAttempts` tinyint(4) ,
+            `Score` int(11) 
+        ); " ;
+        $results = mysqli_query($conn, $query);
+        if ($results){
+            $sql = "SELECT * FROM ATTEMPTS WHERE StudentID = " . $StudentID;
+            $result = mysqli_query($conn, $sql);
+            $attempt = mysqli_num_rows($result);            
+        }
+            
+            // <a href="assign2/quiz.php">
+            if ($attempt > 1) {
+                echo "You have reached maximum limits of attempts for this quiz."; exit();
+            } 
+            else {
+                $score = 0;
+                $questions = array ("Kevin Ashton", "A laptop", ["Cloud computing", "Data gathering sensors", "Interconnected devices"], "sensor", 3) ;
+                
+                # Question 1:
+                if ($questions[0] == $_POST["coined"]){
+                    $score = $score + 1 ;
+                    echo "<p>Question 1: ✅</p>";
+                }
+                else {
+                    echo "<p>Question 1: ❌</p>";
+                }
+            
+                # Question 2:
+                if ($questions[1] == $_POST["not_IOT_device"]) {
+                    $score = $score + 1 ;
+                    echo "<p>Question 2: ✅</p>";
+                }
+                else {
+                    echo "<p>Question 2: ❌</p>";
+                }
+            
+                # Question 3:
+                if ($questions[2] == $_POST["built_on"]) {
+                    $score = $score + 1 ;
+                    echo "<p>Question 3: ✅</p>";
+            
+                }
+                else { 
+                    echo "<p>Question 3: ❌</p>";
+                }
+            
+                # Question 4:
+                if ($questions[3] == $_POST["device"]) {
+                    $score = $score + 1 ;
+                    echo "<p>Question 4: ✅</p>";
+                }
+                else{ 
+                    echo "<p>Question 4: ❌</p>";
+                }
+            
+                # Question 5:
+                if ($questions[4] == $_POST["question5"]) {
+                    $score = $score + 1 ;
+                    echo "<p>Question 5: ✅</p>";
+                }
+                else { 
+                    echo "<p>Question 5: ❌</p>";
+                }    
+            }
+        
+            $attempt = $attempt+1;
+            $sql = "INSERT INTO ATTEMPTS (attemptdate_time, firstname, lastname, studentid, NumberofAttempts, score) " .
+            "VALUES ('" . date('Y-m-d H:i:s') . "','$FirstName','$LastName', $StudentID, $attempt, $score) ";
+
+        if (mysqli_query($conn, $sql)) {
+        
+            echo "<p>Welcome $FirstName $LastName! <br/>
+            Student ID: $StudentID <br/>
+            You have achieved a score of $score <br/>
+            You have ", abs(2 - $attempt) , " attempt(s) remaining for this quiz</p>";
+        }
+        mysqli_close($conn);
+    }
+    else{
+        echo"<p>Please answer ALL questions.</p>";
+    }
+    
 }
 ?>
 </body>
