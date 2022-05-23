@@ -6,13 +6,13 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="styles/style.css">
     <meta charset="UTF-8">
     <meta name="description" content="IoT Website">
     <meta name="keywords" content="HTML, CSS, IOT, Internet of Things">
     <meta name="author" content="IoT Club">
-    <title>IoT Main Menu</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <title>IoT Main Menu</title>
 </head>
 
 <body>
@@ -37,7 +37,6 @@
     </div>
 </div>
 <hr>
-    <?php
-        include_once "footer.inc"?>;
+    <?php include_once "footer.inc"?>;
   </body>
 </html>

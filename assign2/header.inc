@@ -28,7 +28,7 @@
             	<li class = '<?php echo $class2; ?>'><a href="topic.php">Topic</a></li>
 
 			<?php
-			if ($page == "quiz")
+			if ($page == "quiz" or $page == "feedback_page")
 				$class3 = "active";
 			else
 				$class3 = "";
@@ -68,6 +68,8 @@
 			echo "<h1 class='head1'>INTRODUCTION TO IoT</h1>";
 		elseif ($page == "quiz")
 			echo "<h1 class='head1'>Quiz</h1>";
+		elseif ($page == "feedback_page")
+			echo "<h1 class='head1'>Quiz Feedback</h1>";	
 		elseif ($page == "enhancements")
 			echo "<h1 class='head1'>Enhancements</h1>";
 		else
