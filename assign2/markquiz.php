@@ -139,22 +139,33 @@ if ($valid){
 
         if ($score > 0) {
             // Creating table if does not exist as a database,
-            $query = " CREATE TABLE IF NOT EXISTS `ATTEMPTS` (
-                `AttemptID` int(11) PRIMARY KEY AUTO_INCREMENT,
-                `Attemptdate_time` datetime ,
-                `FirstName` varchar(30) ,
-                `LastName` varchar(30) ,
-                `StudentID` int(10) ,
-                `NumberofAttempts` tinyint(1) ,
-                `Score` int(1) 
+            $query_student = " CREATE TABLE IF NOT EXISTS `StudentInfo` (
+                `StudentID` int(8) PRIMARY KEY,
+                `FirstName` varchar(20),
+                `LastName` varchar(20)
+                 ); " ;
+            
+            $result_student = mysqli_query($conn, $query_student) ;
+
+            if ($result_student) {
+                $query = " CREATE TABLE IF NOT EXISTS`Attempts`(
+                `AttemptID` INT(11) PRIMARY KEY AUTO_INCREMENT,
+                `StudentID` INT(8),
+                 FOREIGN KEY (StudentID) REFERENCES `StudentInfo` (StudentID) ,
+                `Attemptdate_time` DATETIME,
+                `NumberofAttempts` TINYINT(4),
+                `Score` INT(11)
             ); " ;
+
+        
             $results = mysqli_query($conn, $query);
-            if ($results){
-                $sql = "SELECT * FROM ATTEMPTS WHERE StudentID = " . $StudentID;
+           
+            if ( ($results)){
+                $sql = "SELECT * FROM Attempts A INNER JOIN StudentInfo S ON A.StudentID=S.StudentID WHERE S.StudentID = $StudentID";
                 $result = mysqli_query($conn, $sql);
                 $attempt = mysqli_num_rows($result);            
             }
-                
+              
                 // <a href="assign2/quiz.php">
                 if ($attempt > 1) {
                     echo "You have reached maximum limits of attempts for this quiz."; exit();
@@ -164,17 +175,28 @@ if ($valid){
                 }
             
                 $attempt = $attempt+1;
-                $sql = "INSERT INTO ATTEMPTS (attemptdate_time, firstname, lastname, studentid, NumberofAttempts, score) " .
-                "VALUES ('" . date('Y-m-d H:i:s') . "','$FirstName','$LastName', $StudentID, $attempt, $score) ";
 
-            if (mysqli_query($conn, $sql)) {
+                $sql_student = "INSERT INTO StudentInfo (firstname, lastname, studentid) " .
+                "VALUES ('$FirstName','$LastName', $StudentID) ";
+
+                if (mysqli_query($conn,$sql_student) ) {
+                $sql = "INSERT INTO Attempts (attemptdate_time, studentid, NumberofAttempts, score) " .
+                "VALUES ('" . date('Y-m-d H:i:s') . "', $StudentID, $attempt, $score) ";
+
+                
+
+                if (mysqli_query($conn, $sql) ) {
             
                 echo "<p>Welcome $FirstName $LastName! <br/>
                 Student ID: $StudentID <br/>
                 You have achieved a score of $score <br/>
                 You have ", abs(2 - $attempt) , " attempt(s) remaining for this quiz</p>";
             }
+        }
+            }
             mysqli_close($conn);
+
+        }
         }
         else {
             echo"<p>Database not created:
@@ -185,7 +207,7 @@ if ($valid){
         echo"<p>Please answer ALL questions.</p>";
     }
     
-}
+
 ?>
 </div>
 <?php include_once "footer.inc"?>;
