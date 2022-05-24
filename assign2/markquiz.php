@@ -16,17 +16,7 @@
     ?>
 <div class="div1">
 <?php
-    $servername = "ictstu-db1.cc.swin.edu.au";
-    $username = "s103486878";
-    $password = "300303";
-    $dbname = "s103486878_db";
-
-    // $username = "s103815980";
-    // $password = "NNA_230802";
-    // $dbname = "s103815980_db";
-
-    // Check the index for attempts
-    // Check answer for Question3 
+    require_once ("settings.php");
 
     // Create connection
     $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -97,10 +87,7 @@ if ($valid){
         }
     }
 
-    
-
-
-    
+        
     if ($questions_valid){
         $score = 0;
         $questions = array ("Kevin Ashton", "A laptop", ["Cloud computing", "Data gathering sensors", "Interconnected devices"], "sensor", 3) ;
@@ -155,11 +142,11 @@ if ($valid){
             $query = " CREATE TABLE IF NOT EXISTS `ATTEMPTS` (
                 `AttemptID` int(11) PRIMARY KEY AUTO_INCREMENT,
                 `Attemptdate_time` datetime ,
-                `FirstName` varchar(20) ,
-                `LastName` varchar(20) ,
-                `StudentID` int(8) ,
-                `NumberofAttempts` tinyint(4) ,
-                `Score` int(11) 
+                `FirstName` varchar(30) ,
+                `LastName` varchar(30) ,
+                `StudentID` int(10) ,
+                `NumberofAttempts` tinyint(1) ,
+                `Score` int(1) 
             ); " ;
             $results = mysqli_query($conn, $query);
             if ($results){

@@ -11,7 +11,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
 
-<body>
+
+
     <?php
         $host = "ictstu-db1.cc.swin.edu.au";
         $user = "s103486878";
@@ -19,7 +20,10 @@
         $sql_db = "s103486878_db";
         $page = "manage";
         include_once ("header.inc");
-
+    ?>
+    <body id = "all_quiz">
+    <div class="div1">
+    <?php
         require_once "settings.php";
         $conn = mysqli_connect($host, $user, $pwd, $sql_db);
         if ($conn) {
@@ -57,8 +61,11 @@
             echo "<p>Connection Failed</p>";
         }
     ?>
-
+    </div>
+    </body>
     <!--Footer-->
     <?php
         include_once "footer.inc";
     ?>
+</div>
+</body

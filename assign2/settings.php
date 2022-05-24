@@ -1,6 +1,6 @@
 <?php
-    $host = "feenix‐mariadb.swin.edu.au";
-    $user = "s103982169";
-    $pwd = "iotclub10";
-    $sql_db = "s1234567_db";
+    $servername = "ictstu-db1.cc.swin.edu.au";
+    $username = "s103486878";
+    $password = "300303";
+    $dbname = "s103486878_db";
 ?>
