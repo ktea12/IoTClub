@@ -20,7 +20,7 @@
     <body id = "all_quiz">
     <div class="div1">
     <h2>Search:</h2>
-    <form method="post" action="<?php echo htmlspecialchars($dbname[" PHP_SELF "]);?>"> <!-- This should post to the same page -->
+    <form method="post" action="manage.php"> <!-- This should post to the same page -->
     <fieldset>
         <p>
             <label for="studentid">Student ID</label>
@@ -39,7 +39,7 @@
     <input type= "submit" value="Search"/>
     <input type= "reset" value="Reset Form"/>
     </form>
-
+    <?php error_reporting (E_ALL ^ E_NOTICE); ?>
     <?php
     
         $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -53,7 +53,8 @@
 
             echo "<p> Connection Successful!</p>";
             $sql_table = "ATTEMPTS";
-            $query = "SELECT * from $sql_table WHERE StudentID = '$studentid%' AND FirstName LIKE '$fname%' AND LastName LIKE '$lname%' AND NumberofAttempts LIKE '$attempt_num%' AND Score LIKE '$score%'; ";
+           
+            $query = "SELECT A.AttemptID, S.StudentID, S.FirstName, S.LastName, A.Attemptdate_time, A.NumberofAttempts, A.Score FROM Attempts A INNER JOIN StudentInfo S ON A.StudentID=S.StudentID WHERE S.StudentID like '%$studentid%' AND S.FirstName LIKE '%$fname%' AND S.LastName LIKE '%$lname%' AND A.NumberofAttempts LIKE '%$attempt_num%' AND A.Score LIKE '%$score%'; ";
     
             $result = mysqli_query($conn, $query);
             if (!$result){
@@ -63,6 +64,7 @@
                 echo "<p>Select successful</p>";
                 $record = mysqli_fetch_assoc ($result);
                 if ($record) {
+                    echo "<p>Connection Successful!</p>";
                     echo "<table border='1'>";
                     echo "<tr><th>StudentID</th><th>FirstName</th><th>LastName</th><th>NumberofAttempts</th><th>Score</th></tr>";
                     while ($record) {
@@ -75,6 +77,9 @@
                     }
                     echo "</table>";
                     mysqli_free_result($result);
+                }
+                else {
+                    echo("<p>123</p>");
                 }
             
             }
