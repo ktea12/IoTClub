@@ -30,8 +30,13 @@
                 <input type = "text" name = "lname" id = "lname"/><br>
             <label for="attempt_num">Attempt number</label> 
                 <input type = "text" name = "attempt_num" id = "attempt_num"/><br>
-            <label for="score">Score</label> 
-                <input type = "text" name = "score" id = "score"/><br>
+            <h3>Score</h3> 
+                <input type="radio" name="score" value="3" id="3" required="required">
+                <label for="score">All</label>
+                <input type="radio" name="score" value="5" id="5" required="required">
+                <label for="score">100%</label>
+                <input type="radio" name="score" value="2" id="2">
+                <label for="score">less than 50%</label>
             
         </p>
     </fieldset>
@@ -52,9 +57,18 @@
 
             echo "<p> Connection Successful!</p>";
             $sql_table = "ATTEMPTS";
-           
-            $query = "SELECT A.AttemptID, S.StudentID, S.FirstName, S.LastName, A.Attemptdate_time, A.NumberofAttempts, A.Score FROM Attempts A INNER JOIN StudentInfo S ON A.StudentID=S.StudentID WHERE S.StudentID like '%$studentid%' AND S.FirstName LIKE '%$fname%' AND S.LastName LIKE '%$lname%' AND A.NumberofAttempts LIKE '%$attempt_num%' AND A.Score LIKE '%$score%'; ";
-    
+
+           if ($_POST["score"]== 5){
+            $query = "SELECT A.AttemptID, S.StudentID, S.FirstName, S.LastName, A.Attemptdate_time, A.NumberofAttempts, A.Score FROM Attempts A INNER JOIN StudentInfo S ON A.StudentID=S.StudentID WHERE S.StudentID like '%$studentid%' AND S.FirstName LIKE '%$fname%' AND S.LastName LIKE '%$lname%' AND A.NumberofAttempts LIKE '%$attempt_num%' and A.Score = 5";
+         }
+         else if ($_POST["score"]== 3){
+            $query = "SELECT A.AttemptID, S.StudentID, S.FirstName, S.LastName, A.Attemptdate_time, A.NumberofAttempts, A.Score FROM Attempts A INNER JOIN StudentInfo S ON A.StudentID=S.StudentID WHERE S.StudentID like '%$studentid%' AND S.FirstName LIKE '%$fname%' AND S.LastName LIKE '%$lname%' AND A.NumberofAttempts LIKE '%$attempt_num%'";
+            }
+         else {
+            $query = "SELECT A.AttemptID, S.StudentID, S.FirstName, S.LastName, A.Attemptdate_time, A.NumberofAttempts, A.Score FROM Attempts A INNER JOIN StudentInfo S ON A.StudentID=S.StudentID WHERE S.StudentID like '%$studentid%' AND S.FirstName LIKE '%$fname%' AND S.LastName LIKE '%$lname%' AND A.NumberofAttempts LIKE '%$attempt_num%' and A.Score<2.5";
+         }
+         
+
             $result = mysqli_query($conn, $query);
             if (!$result){
                 echo "<p>Query Failed</p>";
