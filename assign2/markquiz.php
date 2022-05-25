@@ -161,32 +161,30 @@ if ($valid){
             $results = mysqli_query($conn, $query);
            
             if ( ($results)){
-                $sql1 = "SELECT * FROM Attempts A INNER JOIN StudentInfo S ON A.StudentID=S.StudentID WHERE S.StudentID = $StudentID";
-                $result = mysqli_query($conn, $sql1);
-                $attempt = mysqli_num_rows($result); 
+                $sql = "SELECT * FROM Attempts A INNER JOIN StudentInfo S ON A.StudentID=S.StudentID WHERE S.StudentID = $StudentID";
+                $result = mysqli_query($conn, $sql);
+                $attempt = mysqli_num_rows($result);            
+            }
               
                 // <a href="assign2/quiz.php">
-                $attempt = $attempt+1;
-                if ($attempt > 2) {
+                if ($attempt > 1) {
                     echo "You have reached maximum limits of attempts for this quiz."; exit();
                 } 
                 else {
                    echo ("<p>$answer_feedback</p>");
-                  
-                   
-                $query_new = "SELECT * FROM StudentInfo WHERE studentid=$StudentID "   ;
-                $check =mysqli_query($conn, $query_new) ;
+                }
+            
+                $attempt = $attempt+1;
 
-                if (mysqli_num_rows($check)==0) {
                 $sql_student = "INSERT INTO StudentInfo (firstname, lastname, studentid) " .
                 "VALUES ('$FirstName','$LastName', $StudentID) ";
-                $check1 = mysqli_query($conn,$sql_student) ;
-                }
-                
+
+                if (mysqli_query($conn,$sql_student) ) {
                 $sql = "INSERT INTO Attempts (attemptdate_time, studentid, NumberofAttempts, score) " .
                 "VALUES ('" . date('Y-m-d H:i:s') . "', $StudentID, $attempt, $score) ";
 
                 
+
                 if (mysqli_query($conn, $sql) ) {
             
                 echo "<p>Welcome $FirstName $LastName! <br/>
@@ -194,10 +192,8 @@ if ($valid){
                 You have achieved a score of $score <br/>
                 You have ", abs(2 - $attempt) , " attempt(s) remaining for this quiz</p>";
             }
-        
-                }
-            }
         }
+            }
             mysqli_close($conn);
 
         }
