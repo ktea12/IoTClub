@@ -11,12 +11,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
 
-
-
-    <?php
-        require_once ("settings.php");
-        include_once ("header.inc");
-    ?>
+<?php
+    require_once ("settings.php");
+    $page = "manage";
+    include_once ("header.inc");
+?>
     <body id = "all_quiz">
     <div class="div1">
     <h2>Search:</h2>
