@@ -26,40 +26,48 @@
     <?php
         require_once "settings.php";
         $conn = mysqli_connect($host, $user, $pwd, $sql_db);
-        if ($conn) {
-            echo "<p> Connection Successful!</p>";
-            $query = "Select: Student ID, First name, Last name, Percentage, Attempt number";
-            $result = mysqli_query($conn, $query);
 
-            if ($result) {
-                echo "<p>Select successful</p>";
-                $record = mysqli_fetch_assoc ($result);
-                if ($record) {
-                    echo "<table border='1'>";
-                    echo "<tr><th>ID</th><th>First name</th><th>Last name</th><th>Percentage</th><th>Attempt #</th></tr>";
-                    while ($record) {
-                        echo "<tr><td>{$record['StudentID']}</td>";
-                        echo "<td>{$record['FirstName']}</td>";
-                        echo "<td>{$record['LastName']}</td>";
-                        echo "<td>{$record['Percentage']}</td>";
-                        echo "<td>{$record['AttemptNum']}</td</tr>";
-                        $record = mysqli_fetch_assoc ($result);
-                    }
-                    echo "</table>";
-                    mysqli_free_result($result);
-                }
-                else{
-                    echo("<p>No record found.</p>");
-                }
+        if (!$conn) {
+            echo "<p> Database connection failure. </p>" ;
+        }
+         else {
+            echo "<p> Connection Successful!</p>";
+            $query = "SELECT A.AttemptID,  S.StudentID, S.FirstName, S.LastName, A.Attemptdate_time, A.NumberofAttempts, A.Score FROM Attempts A INNER JOIN StudentInfo S ON A.StudentID=S.StudentID ";
+            $result = mysqli_query($conn, $query);
+            
+           if (!$result){
+               echo "<p> Something wrong with", $query,"</p>" ;
+           }
+           else {
+               echo "<table border=\"1\">\n" ;
+               echo "<tr>\n "
+               ."<th scope=\"col\">AttemptID</th>\n "
+               ."<th scope=\"col\">StudentID</th>\n "
+               ."<th scope=\"col\">FirstName</th>\n "
+               ."<th scope=\"col\">LastName</th>\n "
+               ."<th scope=\"col\">Attemptdate_time</th>\n "
+               ."<th scope=\"col\">NumberofAttempts</th>\n "
+               ."<th scope=\"col\">Score</th>\n "
+                ."</tr>\n ";
+            
+            while ($row = mysqli_fetch_assoc($result)){
+                echo "<tr>\n " ;
+                echo "<td>", $row["AttemptID"], "<td>\n " ;
+                echo "<td>", $row["StudentID"], "<td>\n " ;
+                echo "<td>", $row["FirstName"], "<td>\n " ;
+                echo "<td>", $row["LastName"], "<td>\n " ;
+                echo "<td>", $row["Attemptdate_time"], "<td>\n " ;
+                echo "<td>", $row["NumberofAttempts"], "<td>\n " ;
+                echo "<td>", $row["Score"], "<td>\n " ;
+                echo "</tr>\n ";
             }
-            else{
-                echo("<p>Select Unsuccessful</p>");
-            }
+           
+        echo "</table>\n" ;
+           }
+        
             mysqli_close($conn);
         }
-        else {
-            echo "<p>Connection Failed</p>";
-        }
+    
     ?>
     </div>
     </body>
