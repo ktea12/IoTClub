@@ -35,7 +35,9 @@
             
         </p>
     </fieldset>
-    <input type= "submit" value="Search"/>
+    <input type= "submit" name="action" value="Search"/>
+    <input type="submit" name="action" value="Update" />
+    <input type="submit" name="action" value="Delete" />
     <input type= "reset" value="Reset Form"/>
     </form>
     <?php error_reporting (E_ALL ^ E_NOTICE); ?>
@@ -63,7 +65,7 @@
                 echo "<p>Select successful</p>";
                 $record = mysqli_fetch_assoc ($result);
                 if ($record) {
-                    echo "<p>Connection Successful!</p>";
+                    
                     echo "<table border='1'>";
                     echo "<tr><th>StudentID</th><th>FirstName</th><th>LastName</th><th>NumberofAttempts</th><th>Score</th></tr>";
                     while ($record) {
