@@ -59,13 +59,6 @@
                     }
                     mysqli_free_result($result);
                 }
-<<<<<<< Updated upstream
-                else {
-                    echo("<p>123</p>");
-                }
-            
-=======
->>>>>>> Stashed changes
             }
         }
         elseif ($_POST['other'] == 'Search') {
