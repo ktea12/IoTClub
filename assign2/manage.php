@@ -34,6 +34,33 @@
             echo "<p> Connection Successful!</p>";
             $query = "SELECT A.AttemptID,  S.StudentID, S.FirstName, S.LastName, A.Attemptdate_time, A.NumberofAttempts, A.Score FROM Attempts A INNER JOIN StudentInfo S ON A.StudentID=S.StudentID ";
             $result = mysqli_query($conn, $query);
+<<<<<<< Updated upstream
+=======
+            if (!$result){
+                echo "<p>Query Failed</p>";
+            }
+            else {
+                echo "<p>Select successful</p>";
+                $record = mysqli_fetch_assoc ($result);
+                if ($record) {
+                    echo "<p>Connection Successful!</p>";
+                    echo "<table border='1'>";
+                    echo "<tr><th>StudentID</th><th>FirstName</th><th>LastName</th><th>NumberofAttempts</th><th>Score</th></tr>";
+                    while ($record) {
+                        echo "<tr><td>{$record['StudentID']}</td>";
+                        echo "<td>{$record['FirstName']}</td>";
+                        echo "<td>{$record['LastName']}</td>";
+                        echo "<td>{$record['NumberofAttempts']}</td>";
+                        echo "<td>{$record['Score']}</td</tr>";
+                        $record = mysqli_fetch_assoc ($result);
+                    }
+                    echo "</table>";
+                    mysqli_free_result($result);
+                }
+                else {
+                    echo("<p>Select unsuccessful</p>");
+                }
+>>>>>>> Stashed changes
             
            if (!$result){
                echo "<p> Something wrong with", $query,"</p>" ;
