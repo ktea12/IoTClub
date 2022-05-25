@@ -14,46 +14,69 @@
 
 
     <?php
-        $host = "ictstu-db1.cc.swin.edu.au";
-        $user = "s103486878";
-        $pwd = "300303";
-        $sql_db = "s103486878_db";
-        $page = "manage";
+        require_once ("settings.php");
         include_once ("header.inc");
     ?>
     <body id = "all_quiz">
     <div class="div1">
-    <?php
-        require_once "settings.php";
-        $conn = mysqli_connect($host, $user, $pwd, $sql_db);
-        if ($conn) {
-            echo "<p> Connection Successful!</p>";
-            $query = "Select: Student ID, First name, Last name, Percentage, Attempt number";
-            $result = mysqli_query($conn, $query);
+    <h2>Search:</h2>
+    <form method="post" action="<?php echo htmlspecialchars($dbname[" PHP_SELF "]);?>"> <!-- This should post to the same page -->
+    <fieldset>
+        <p>
+            <label for="studentid">Student ID</label>
+                <input type = "text" name = "studentid" id = "studentid"/><br>
+            <label for="fname">First name</label>
+                <input type = "text" name = "fname" id = "fname"/><br>
+            <label for="lname">Last name</label> 
+                <input type = "text" name = "lname" id = "lname"/><br>
+            <label for="attempt_num">Attempt number</label> 
+                <input type = "text" name = "attempt_num" id = "attempt_num"/><br>
+            <label for="score">Score</label> 
+                <input type = "text" name = "score" id = "score"/><br>
+            
+        </p>
+    </fieldset>
+    <input type= "submit" value="Search"/>
+    <input type= "reset" value="Reset Form"/>
+    </form>
 
-            if ($result) {
+    <?php
+    
+        $conn = mysqli_connect($servername, $username, $password, $dbname);
+        if ($conn) {
+
+            $studentid = trim(htmlspecialchars($_POST["studentid"]));
+            $fname = trim(htmlspecialchars($_POST["fname"]));
+            $lname = trim(htmlspecialchars($_POST["lname"]));
+            $attempt_num = trim(htmlspecialchars($_POST["attempt_num"]));
+            $score = trim(htmlspecialchars($_POST["score"]));
+
+            echo "<p> Connection Successful!</p>";
+            $sql_table = "ATTEMPTS";
+            $query = "SELECT * from $sql_table WHERE StudentID = '$studentid%' AND FirstName LIKE '$fname%' AND LastName LIKE '$lname%' AND NumberofAttempts LIKE '$attempt_num%' AND Score LIKE '$score%'; ";
+    
+            $result = mysqli_query($conn, $query);
+            if (!$result){
+                echo "<p>Query Failed</p>";
+            }
+            else {
                 echo "<p>Select successful</p>";
                 $record = mysqli_fetch_assoc ($result);
                 if ($record) {
                     echo "<table border='1'>";
-                    echo "<tr><th>ID</th><th>First name</th><th>Last name</th><th>Percentage</th><th>Attempt #</th></tr>";
+                    echo "<tr><th>StudentID</th><th>FirstName</th><th>LastName</th><th>NumberofAttempts</th><th>Score</th></tr>";
                     while ($record) {
                         echo "<tr><td>{$record['StudentID']}</td>";
                         echo "<td>{$record['FirstName']}</td>";
                         echo "<td>{$record['LastName']}</td>";
-                        echo "<td>{$record['Percentage']}</td>";
-                        echo "<td>{$record['AttemptNum']}</td</tr>";
+                        echo "<td>{$record['NumberofAttempts']}</td>";
+                        echo "<td>{$record['Score']}</td</tr>";
                         $record = mysqli_fetch_assoc ($result);
                     }
                     echo "</table>";
                     mysqli_free_result($result);
                 }
-                else{
-                    echo("<p>No record found.</p>");
-                }
-            }
-            else{
-                echo("<p>Select Unsuccessful</p>");
+            
             }
             mysqli_close($conn);
         }
@@ -61,6 +84,9 @@
             echo "<p>Connection Failed</p>";
         }
     ?>
+
+
+</body>
     </div>
     </body>
     <!--Footer-->
