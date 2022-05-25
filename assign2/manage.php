@@ -77,14 +77,18 @@
                 echo('<input type = "text" name = "lname" id = "lname" maxlength = "30" pattern="[A-Za-z- ]+"/><br>');
             echo('<label for="attempt_num">Attempt number</label>');
                 echo('<input type = "text" name = "attempt_num" id = "attempt_num" maxlength = "1" pattern="\d{1}"/><br>');
+            echo('<label for="score">Score</label>');
+                echo('<input type = "text" name = "score" id = "score" maxlength = "1" pattern="\d{1}"/><br>');
+            
             echo("<h3>Score</h3>");
-            echo('<input type="radio" name="score" value="3" id="3" required="required">');
-            echo('<label for="score">All</label>');
-            echo('<input type="radio" name="score" value="5" id="5" required="required">');
-            echo('<label for="score">100%</label>');
-            echo('<input type="radio" name="score" value="2" id="2">');
-            echo('<label for="score">less than 50%</label>');
-                
+            
+            echo('<label for="equal">Equal to: </label>');
+                echo('<input type="radio" name="compare" value="equal" id="equal">');
+            echo('<label for="greater">Greater than: </label>');
+                echo('<input type="radio" name="compare" value="greater" id="greater">');
+            echo('<label for="less">Less than: </label>');
+                echo('<input type="radio" name="compare" value="less" id="less">');
+
         echo("</p>");
         echo("</fieldset>");
         echo('<input type= "submit" name = "action" value="Search"/>');
@@ -100,21 +104,26 @@
             $fname = trim(htmlspecialchars($_POST["fname"]));
             $lname = trim(htmlspecialchars($_POST["lname"]));
             $attempt_num = trim(htmlspecialchars($_POST["attempt_num"]));
-            $score = trim(htmlspecialchars($_POST["score"]));
+            $score = intval(trim(htmlspecialchars($_POST["score"])));
+            $compare = trim(htmlspecialchars($_POST["compare"]));
 
-            echo "<p> Connection Successful!</p>";
+            echo "<p>Connection Successful!</p>";
             $sql_table = "ATTEMPTS";
-
-        if ($_POST["score"]== 5){
-            $query = "SELECT A.AttemptID, S.StudentID, S.FirstName, S.LastName, A.Attemptdate_time, A.NumberofAttempts, A.Score FROM Attempts A INNER JOIN StudentInfo S ON A.StudentID=S.StudentID WHERE S.StudentID like '%$studentid%' AND S.FirstName LIKE '%$fname%' AND S.LastName LIKE '%$lname%' AND A.NumberofAttempts LIKE '%$attempt_num%' and A.Score = 5";
-        }
-        else if ($_POST["score"]== 3){
-            $query = "SELECT A.AttemptID, S.StudentID, S.FirstName, S.LastName, A.Attemptdate_time, A.NumberofAttempts, A.Score FROM Attempts A INNER JOIN StudentInfo S ON A.StudentID=S.StudentID WHERE S.StudentID like '%$studentid%' AND S.FirstName LIKE '%$fname%' AND S.LastName LIKE '%$lname%' AND A.NumberofAttempts LIKE '%$attempt_num%'";
+            echo "<p>$compare</p>";
+            #$query = "SELECT A.AttemptID, S.StudentID, S.FirstName, S.LastName, A.Attemptdate_time, A.NumberofAttempts, A.Score FROM Attempts A INNER JOIN StudentInfo S ON A.StudentID=S.StudentID WHERE S.StudentID like '%$studentid%' AND S.FirstName LIKE '%$fname%' AND S.LastName LIKE '%$lname%' AND A.NumberofAttempts LIKE '%$attempt_num%' AND A.Score LIKE '%$score%'; ";
+            if ($compare == "greater"){
+                $query = "SELECT A.AttemptID, S.StudentID, S.FirstName, S.LastName, A.Attemptdate_time, A.NumberofAttempts, A.Score FROM Attempts A INNER JOIN StudentInfo S ON A.StudentID=S.StudentID WHERE S.StudentID like '%$studentid%' AND S.FirstName LIKE '%$fname%' AND S.LastName LIKE '%$lname%' AND A.NumberofAttempts LIKE '%$attempt_num%' and A.Score > $score ";
             }
-        else {
-            $query = "SELECT A.AttemptID, S.StudentID, S.FirstName, S.LastName, A.Attemptdate_time, A.NumberofAttempts, A.Score FROM Attempts A INNER JOIN StudentInfo S ON A.StudentID=S.StudentID WHERE S.StudentID like '%$studentid%' AND S.FirstName LIKE '%$fname%' AND S.LastName LIKE '%$lname%' AND A.NumberofAttempts LIKE '%$attempt_num%' and A.Score<2.5";
+            elseif ($compare == "less"){
+                $query = "SELECT A.AttemptID, S.StudentID, S.FirstName, S.LastName, A.Attemptdate_time, A.NumberofAttempts, A.Score FROM Attempts A INNER JOIN StudentInfo S ON A.StudentID=S.StudentID WHERE S.StudentID like '%$studentid%' AND S.FirstName LIKE '%$fname%' AND S.LastName LIKE '%$lname%' AND A.NumberofAttempts LIKE '%$attempt_num%' and A.Score < $score ";
+            }
+            elseif ($compare == "equal"){
+                $query = "SELECT A.AttemptID, S.StudentID, S.FirstName, S.LastName, A.Attemptdate_time, A.NumberofAttempts, A.Score FROM Attempts A INNER JOIN StudentInfo S ON A.StudentID=S.StudentID WHERE S.StudentID like '%$studentid%' AND S.FirstName LIKE '%$fname%' AND S.LastName LIKE '%$lname%' AND A.NumberofAttempts LIKE '%$attempt_num%' AND A.Score LIKE '%$score%'; ";
+            }
+            else {
+                $query = "SELECT A.AttemptID, S.StudentID, S.FirstName, S.LastName, A.Attemptdate_time, A.NumberofAttempts, A.Score FROM Attempts A INNER JOIN StudentInfo S ON A.StudentID=S.StudentID WHERE S.StudentID like '%$studentid%' AND S.FirstName LIKE '%$fname%' AND S.LastName LIKE '%$lname%' AND A.NumberofAttempts LIKE '%$attempt_num%' AND A.Score > 0 ";
+            }
         }
-        
 
         $result = mysqli_query($conn, $query);
         if (!$result){
@@ -148,7 +157,7 @@
         else {
             echo "<p>Connection Failed</p>";
         }
-    }
+    
 ?>
 
 
