@@ -60,7 +60,7 @@
                 }
             }
         }
-        elseif ($_POST['other'] == 'Search') {
+        elseif ($_POST['action']) {
             $signed_in = true;
         }
     }
@@ -87,8 +87,7 @@
                 
         echo("</p>");
         echo("</fieldset>");
-        echo('<input type= "submit" name = "other" value="Search"/>');
-        echo('<input type= "reset" value="Reset Form"/>');
+        echo('<input type= "submit" name = "action" value="Search"/>');
         echo('<input type="submit" name="action" value="Update" />');
         echo('<input type="submit" name="action" value="Delete" />');
         echo('<input type= "reset" value="Reset Form"/>');
