@@ -14,28 +14,49 @@
 
 
     <?php
-        $host = "ictstu-db1.cc.swin.edu.au";
-        $user = "s103486878";
-        $pwd = "300303";
-        $sql_db = "s103486878_db";
-        $page = "manage";
+        require_once ("settings.php");
         include_once ("header.inc");
     ?>
     <body id = "all_quiz">
     <div class="div1">
+    <h2>Search:</h2>
+    <form method="post" action="manage.php"> <!-- This should post to the same page -->
+    <fieldset>
+        <p>
+            <label for="studentid">Student ID</label>
+                <input type = "text" name = "studentid" id = "studentid"/><br>
+            <label for="fname">First name</label>
+                <input type = "text" name = "fname" id = "fname"/><br>
+            <label for="lname">Last name</label> 
+                <input type = "text" name = "lname" id = "lname"/><br>
+            <label for="attempt_num">Attempt number</label> 
+                <input type = "text" name = "attempt_num" id = "attempt_num"/><br>
+            <label for="score">Score</label> 
+                <input type = "text" name = "score" id = "score"/><br>
+            
+        </p>
+    </fieldset>
+    <input type= "submit" value="Search"/>
+    <input type= "reset" value="Reset Form"/>
+    </form>
+    <?php error_reporting (E_ALL ^ E_NOTICE); ?>
     <?php
-        require_once "settings.php";
-        $conn = mysqli_connect($host, $user, $pwd, $sql_db);
+    
+        $conn = mysqli_connect($servername, $username, $password, $dbname);
+        if ($conn) {
 
-        if (!$conn) {
-            echo "<p> Database connection failure. </p>" ;
-        }
-         else {
+            $studentid = trim(htmlspecialchars($_POST["studentid"]));
+            $fname = trim(htmlspecialchars($_POST["fname"]));
+            $lname = trim(htmlspecialchars($_POST["lname"]));
+            $attempt_num = trim(htmlspecialchars($_POST["attempt_num"]));
+            $score = trim(htmlspecialchars($_POST["score"]));
+
             echo "<p> Connection Successful!</p>";
-            $query = "SELECT A.AttemptID,  S.StudentID, S.FirstName, S.LastName, A.Attemptdate_time, A.NumberofAttempts, A.Score FROM Attempts A INNER JOIN StudentInfo S ON A.StudentID=S.StudentID ";
+            $sql_table = "ATTEMPTS";
+           
+            $query = "SELECT A.AttemptID, S.StudentID, S.FirstName, S.LastName, A.Attemptdate_time, A.NumberofAttempts, A.Score FROM Attempts A INNER JOIN StudentInfo S ON A.StudentID=S.StudentID WHERE S.StudentID like '%$studentid%' AND S.FirstName LIKE '%$fname%' AND S.LastName LIKE '%$lname%' AND A.NumberofAttempts LIKE '%$attempt_num%' AND A.Score LIKE '%$score%'; ";
+    
             $result = mysqli_query($conn, $query);
-<<<<<<< Updated upstream
-=======
             if (!$result){
                 echo "<p>Query Failed</p>";
             }
@@ -60,42 +81,17 @@
                 else {
                     echo("<p>Select unsuccessful</p>");
                 }
->>>>>>> Stashed changes
             
-           if (!$result){
-               echo "<p> Something wrong with", $query,"</p>" ;
-           }
-           else {
-               echo "<table border=\"1\">\n" ;
-               echo "<tr>\n "
-               ."<th scope=\"col\">AttemptID</th>\n "
-               ."<th scope=\"col\">StudentID</th>\n "
-               ."<th scope=\"col\">FirstName</th>\n "
-               ."<th scope=\"col\">LastName</th>\n "
-               ."<th scope=\"col\">Attemptdate_time</th>\n "
-               ."<th scope=\"col\">NumberofAttempts</th>\n "
-               ."<th scope=\"col\">Score</th>\n "
-                ."</tr>\n ";
-            
-            while ($row = mysqli_fetch_assoc($result)){
-                echo "<tr>\n " ;
-                echo "<td>", $row["AttemptID"], "<td>\n " ;
-                echo "<td>", $row["StudentID"], "<td>\n " ;
-                echo "<td>", $row["FirstName"], "<td>\n " ;
-                echo "<td>", $row["LastName"], "<td>\n " ;
-                echo "<td>", $row["Attemptdate_time"], "<td>\n " ;
-                echo "<td>", $row["NumberofAttempts"], "<td>\n " ;
-                echo "<td>", $row["Score"], "<td>\n " ;
-                echo "</tr>\n ";
             }
-           
-        echo "</table>\n" ;
-           }
-        
             mysqli_close($conn);
         }
-    
+        else {
+            echo "<p>Connection Failed</p>";
+        }
     ?>
+
+
+</body>
     </div>
     </body>
     <!--Footer-->
