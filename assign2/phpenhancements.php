@@ -48,19 +48,13 @@
                         <h2>Login Feature</h2>
                         <p>In the manage.php, we applied a login feature in our website using PHP and MySQL. The login feature is very simple and easy to use. The user can login using their username and password.</p>
                         </p>
-                        <p> When implementing the features, we have used many different types of classes. For example, we used "blurb" class. When we want to make some changes like the font size to the heading 2, we can simply categorized it as ".blurb h2".
-                            This section will automatically change the size of the font in heading 2 within that particular class range like the word "Bootstrap" and "CSS".
-                        </p>
-                        <p>
-                            Besides that, data-toggle and data-target attribute have been used in the button tag to instruct Bootstrap which element has to be selected and what to do with it. 
-                        </p>
                     </div>
                 </div>
             </div>
         </div>
         <div class="row align-items-center content">
             <div class="col-md-6 blurb2">
-                <img src="images/css.jpg" alt="CSS">
+                <img src="images/database.jpg" alt="Database">
               </div>
             <div class="col-md-6 text-center">
                 <div class="row justify-content-center">
@@ -81,7 +75,7 @@
 
                         </p>
 
-                        <p>We normalised the table into 2. Which consists of Attempts's table and StudenInfo table.</p>
+                        <p>We normalized the table into 2. Which consists of Attempts's table and StudenInfo table.</p>
                     </div>
                 </div>
             </div>
