@@ -77,10 +77,9 @@
                 echo('<input type = "text" name = "lname" id = "lname" maxlength = "30" pattern="[A-Za-z- ]+"/><br>');
             echo('<label for="attempt_num">Attempt number</label>');
                 echo('<input type = "text" name = "attempt_num" id = "attempt_num" maxlength = "1" pattern="\d{1}"/><br>');
-            echo('<label for="score">Score</label>');
-                echo('<input type = "text" name = "score" id = "score" maxlength = "1" pattern="\d{1}"/><br>');
+                
             
-            echo("<h3>Score</h3>");
+            echo("<p><strong>Score</strong></p>");
             
             echo('<label for="equal">Equal to: </label>');
                 echo('<input type="radio" name="compare" value="equal" id="equal">');
@@ -88,6 +87,7 @@
                 echo('<input type="radio" name="compare" value="greater" id="greater">');
             echo('<label for="less">Less than: </label>');
                 echo('<input type="radio" name="compare" value="less" id="less">');
+            echo('<input type = "text" name = "score" id = "score" maxlength = "1" pattern="\d{1}"/><br>');
 
         echo("</p>");
         echo("</fieldset>");
