@@ -46,13 +46,12 @@
                     <div class="blurb">
                         <!--<div class="col-10 col-lg-8 blurb mb-5 mb-md-0">-->
                         <h2>Login Feature</h2>
-                        <p>In the manage.php, we applied a login feature in our website using PHP and MySQL. The login feature is very simple and easy to use. The user can login using their username and password.</p>
+                        <p>In the manage.php, we applied admin login feature in our website using PHP and MySQL. The login feature is very simple and easy to use. The user must login using enter the admin username and password to access the database for students' quiz result.</p>
                         </p>
-                        <p> When implementing the features, we have used many different types of classes. For example, we used "blurb" class. When we want to make some changes like the font size to the heading 2, we can simply categorized it as ".blurb h2".
-                            This section will automatically change the size of the font in heading 2 within that particular class range like the word "Bootstrap" and "CSS".
+                        <p>To create the login, we simply coded a form with an input type "text" to enter the username and password, and the form is submitted to the same page. The username and password are checked in the database.</p>
                         </p>
                         <p>
-                            Besides that, data-toggle and data-target attribute have been used in the button tag to instruct Bootstrap which element has to be selected and what to do with it. 
+                        If the username and password are correct, the user is signed in and will be able to search and edit the database. If the username and password are incorrect, the user will not be signed in and will display a message saying incorrect details and connection failed.
                         </p>
                     </div>
                 </div>
