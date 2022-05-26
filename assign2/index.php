@@ -31,7 +31,7 @@
     <form style="display: inline" action="quiz.php" method="get">
         <button class="btn txt1">INTERNET OF THINGS QUIZ</button>
     </form><br><br>
-    <form style="display: inline" action="enhancements.php" method="get">
+    <form style="display: inline" action="phpenhancements.php" method="get">
         <button class="btn txt1">WEBSITE ENHANCEMENTS</button>
     </form><br><br>
     </div>
