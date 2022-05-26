@@ -54,11 +54,6 @@
                         <p>
                             Besides that, data-toggle and data-target attribute have been used in the button tag to instruct Bootstrap which element has to be selected and what to do with it. 
                         </p>
-                        <p>
-                             <a href="https://getbootstrap.com/docs/4.0/components/navbar/?msclkid=8c9050b0bace11ec8412286fb889541d" >Link 1 of the navigation bar</a><br>
-                             <a href="https://www.w3schools.com/bootstrap/bootstrap_navbar.asp#:~:text=%20Bootstrap%20Navigation%20Bar%20%201%20Navigation%20Bars.,element%20and%20add%20an%20input%20%28s%29.%20More%20?msclkid=8c8f9d6cbace11ec9f50eccb4f4791f7">Link 2 of the navigation bar</a><br>
-                             <a href="quiz.html">Quiz Page</a>
-                        </p>
                     </div>
                 </div>
             </div>
@@ -71,19 +66,22 @@
                 <div class="row justify-content-center">
                     <div class="blurb">
                         <!--<div class="col-10 col-lg-8 blurb mb-5 mb-md-0">-->
-                        <h2>CSS</h2>
-                        <p>Cascading Style Sheets(CSS) is implemented in the designed of the website for a way to define, apply, and manage sets of style characteristics. We use animation on the topic page in which can be seen in the IoT Benefits image so that it zooms in when we hover on it.
-                           Besides that, we also put some related IoT images all across the Topic page and when we hover over it, each of the page will be zoom in. Our team members also had implement a transition from one page to another page.
+                        <h2>Database</h2>
+                        <p>Primary key
+
+                            A field in the table that uniquely identify each row/record in a databse table.
+                            In our StudentInfo's table, we used StudentID as the primary key and for 
+                            the Attempts table we used AttemptID as the primary key. 
                         </p>
-                         <p>For the animation part in the images across the Topic page, we use ".box:hover", ".box" and ".box img" class. the ".box" width and the shadow of the box while the ".box img" is use for resizing the images. The hover part we use ".box:hover" which we insert the transform scale of the expansion when we hover it and also the cursor as a pointer.
-                             We use different markups as such transform, transition value and display. 
-                            Apart from that, we use keyframes for the making on the transition from another page to the Quiz page. 
-                            We set the opacity from 0 to 1 and transform the text position.
+                         <p>Foreign Key
+
+                            When it comes to the foreign key, it is a unique field in one table that refers 
+                            to the primary key of another table. In our table, 
+                            we basically inner join StudentID as the foreign key in the Attempts's table. 
+
                         </p>
-                        <a href="https://www.freecodecamp.org/news/css-transition-examples/?msclkid=60c2c6c1baca11ec8fa480c24a07c48f">Link 1 of the transition</a><br>
-                        <a href="https://www.w3schools.com/howto/howto_css_zoom_hover.asp?msclkid=60c11112baca11ec92e86143041e767f">Link 2 of the transition</a><br>
-                       <a href="https://www.youtube.com/watch?v=7j8vTKx0ABA">Link to the Youtube channel about transition</a><br>
-                       <a href="topic.html">Topic page</a>
+
+                        <p>We normalised the table into 2. Which consists of Attempts's table and StudenInfo table.</p>
                     </div>
                 </div>
             </div>
