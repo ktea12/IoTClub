@@ -48,14 +48,11 @@
                         <h2>Login Feature</h2>
                         <p>In the manage.php, we applied an admin login feature coded using PHP and MySQL. The login feature is very simple and easy to use. The user must login by entering the admin username and password. This will give access to the database for students' quiz result.</p>
                         </p>
-<<<<<<< HEAD
-=======
                         <p>To create the username and password input, we simply coded a form and used the input type "text". The form is then submitted to the same page (manage.php). The username and password are checked in the database.</p>
                         </p>
                         <p>
                         If the username and password are correct, the user will be signed in and will be able to search and edit the database. If the username and password are incorrect, the user will not be signed in and will display a message saying incorrect details and connection failed.
                         </p>
->>>>>>> bb8476c8ced9689d9acec8c2d1c85d3aa995b1a0
                     </div>
                 </div>
             </div>
@@ -69,13 +66,13 @@
                     <div class="blurb">
                         <!--<div class="col-10 col-lg-8 blurb mb-5 mb-md-0">-->
                         <h2>Database</h2>
-                        <p>Primary key
+                        <p>Primary key<br>
 
                             A field in the table that uniquely identify each row/record in a databse table.
                             In our StudentInfo's table, we used StudentID as the primary key and for 
                             the Attempts table we used AttemptID as the primary key. 
                         </p>
-                         <p>Foreign Key
+                         <p>Foreign Key<br>
 
                             When it comes to the foreign key, it is a unique field in one table that refers 
                             to the primary key of another table. In our table, 
