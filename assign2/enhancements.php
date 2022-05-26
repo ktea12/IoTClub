@@ -39,15 +39,14 @@
     <section class="container-fluid px-100">
         <div class="row align-items-center content">
             <div class="col-md-5 order-2 order-md-1 blurb2">
-                <img src="images/Bootstrap_logo.png" alt="Bootstrap">
+                <img src="images/login.png" alt="Login">
               </div>
               <div class="col-md-7 text-center order-1 order-md-2">
                 <div class="row justify-content-center">
                     <div class="blurb">
                         <!--<div class="col-10 col-lg-8 blurb mb-5 mb-md-0">-->
-                        <h2>Bootstrap</h2>
-                        <p>Bootstrap is a free and open-source for faster and easier web development framework.
-                           With the basic knowledge of HTML and CSS, our team members are able to modify according to the requirement. Basically, we use Bootstrap which is a different domain that we have covered outside the class. We use the Bootstrap for the navigation bar. It is a fixed navigation bar. This means when we scroll down the navigation bar sticks on top of the window. We also use the enhancement of a collapsible bar, which collapses when we minimise the window. 
+                        <h2>Login Feature</h2>
+                        <p>In the manage.php, we applied a login feature in our website using PHP and MySQL. The login feature is very simple and easy to use. The user can login using their username and password.</p>
                         </p>
                         <p> When implementing the features, we have used many different types of classes. For example, we used "blurb" class. When we want to make some changes like the font size to the heading 2, we can simply categorized it as ".blurb h2".
                             This section will automatically change the size of the font in heading 2 within that particular class range like the word "Bootstrap" and "CSS".
