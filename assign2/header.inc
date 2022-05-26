@@ -34,6 +34,14 @@
 				$class3 = "";
 			?>
             	<li class = '<?php echo $class3; ?>'><a href="quiz.php">Quiz</a></li>
+
+			<?php
+			if ($page == "manage")
+				$class6 = "active";
+			else
+				$class6 = "";
+			?>
+            	<li class = '<?php echo $class6; ?>'><a href="manage.php">Manager</a></li>
             	</ul>
 
             	<ul class="nav navbar-nav navbar-right">
@@ -47,12 +55,12 @@
             	
 			
 			<?php
-			if ($page == "manage")
+			if ($page == "enhancements2")
 				$class5 = "active";
 			else
 				$class5 = "";
 			?>
-			<li class = '<?php echo $class5; ?>'><a href="manage.php"><span class="glyphicon glyphicon-info-sign"></span> Manager</a></li>
+			<li class = '<?php echo $class5; ?>'><a href="enhancements2.php"><span class="glyphicon glyphicon-info-sign"></span> Enhancements 2</a></li>
 			</ul>
         	</div>
         </div>
@@ -72,6 +80,8 @@
 			echo "<h1 class='head1'>Quiz Feedback</h1>";	
 		elseif ($page == "enhancements")
 			echo "<h1 class='head1'>Enhancements</h1>";
+		elseif ($page == "enhancements2")
+			echo "<h1 class='head1'>Enhancements 2</h1>";
 		else
 			echo "<h1 class='head1'>Manager</h1>";
 			
