@@ -59,7 +59,7 @@
 			else
 				$class5 = "";
 			?>
-			<li class = '<?php echo $class5; ?>'><a href="phpenhancements.php"><span class="glyphicon glyphicon-info-sign"></span>PHP Enhancements</a></li>
+			<li class = '<?php echo $class5; ?>'><a href="phpenhancements.php"><span class="glyphicon glyphicon-info-sign"></span> PHP Enhancements</a></li>
 			</ul>
         	</div>
         </div>
