@@ -51,6 +51,14 @@
 			else
 				$class4 = "";
 			?>
+            	<li class = '<?php echo $class4; ?>'><a href="phpenhancements.php"><span class="glyphicon glyphicon-info-sign"></span>PHP Enhancements</a></li>
+            
+			<?php
+			if ($page == "enhancements")
+				$class6 = "active";
+			else
+				$class6 = "";
+			?>
             	<li class = '<?php echo $class4; ?>'><a href="enhancements.php"><span class="glyphicon glyphicon-info-sign"></span> Enhancements</a></li>
             	
 			
