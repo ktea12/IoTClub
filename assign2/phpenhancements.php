@@ -32,7 +32,7 @@
 
 <body>
     <?php
-        $page = "enhancements";
+        $page = "enhancements2";
         include_once ("header.inc");
     ?>
 <div class="div1">   

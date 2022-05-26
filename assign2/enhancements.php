@@ -33,7 +33,7 @@
 
 <body>
 <?php
-        $page = "index";
+        $page = "enhancements";
         include_once ("header.inc");
     ?>
         <!-- <header id="b">
