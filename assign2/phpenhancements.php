@@ -46,12 +46,12 @@
                     <div class="blurb">
                         <!--<div class="col-10 col-lg-8 blurb mb-5 mb-md-0">-->
                         <h2>Login Feature</h2>
-                        <p>In the manage.php, we applied admin login feature in our website using PHP and MySQL. The login feature is very simple and easy to use. The user must login using enter the admin username and password to access the database for students' quiz result.</p>
+                        <p>In the manage.php, we applied an admin login feature coded using PHP and MySQL. The login feature is very simple and easy to use. The user must login by entering the admin username and password. This will give access to the database for students' quiz result.</p>
                         </p>
-                        <p>To create the login, we simply coded a form with an input type "text" to enter the username and password, and the form is submitted to the same page. The username and password are checked in the database.</p>
+                        <p>To create the username and password input, we simply coded a form and used the input type "text". The form is then submitted to the same page (manage.php). The username and password are checked in the database.</p>
                         </p>
                         <p>
-                        If the username and password are correct, the user is signed in and will be able to search and edit the database. If the username and password are incorrect, the user will not be signed in and will display a message saying incorrect details and connection failed.
+                        If the username and password are correct, the user will be signed in and will be able to search and edit the database. If the username and password are incorrect, the user will not be signed in and will display a message saying incorrect details and connection failed.
                         </p>
                     </div>
                 </div>
