@@ -168,7 +168,7 @@ if ($valid){
                 // <a href="assign2/quiz.php">
                 $attempt = $attempt+1;
                 if ($attempt > 2) {
-                    echo "You have reached maximum limits of attempts for this quiz."; exit();
+                    echo "You have already attempted this quiz twice."; exit();
                 } 
                 else {
                    echo ("<p>$answer_feedback</p>");

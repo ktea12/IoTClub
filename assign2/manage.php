@@ -133,7 +133,7 @@
             if ($record) {
                 echo "<p>Matching results:</p>";
                 echo "<table border='1'>";
-                echo "<tr><th>Student ID</th><th>First Name</th><th>Last Name</th><th>Attempt # (Descending)</th><th>Score</th></tr>";
+                echo "<tr><th>Student ID</th><th>First Name</th><th>Last Name</th><th>Attempt number</th><th>Score</th></tr>";
                 while ($record) {
                     echo "<tr><td>{$record['StudentID']}</td>";
                     echo "<td>{$record['FirstName']}</td>";
