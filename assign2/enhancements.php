@@ -30,11 +30,17 @@
 
 </head>
 
+
 <body>
-    <?php
+<?php
         $page = "enhancements";
         include_once ("header.inc");
     ?>
+        <!-- <header id="b">
+            <img id="logo" src="images/iotlogo.png" alt="IoT Logo">
+            <br>
+            <h1 class="head1">Enhancement</h1>
+        </header> -->
 <div class="div1">   
     <section class="container-fluid px-100">
         <div class="row align-items-center content">
@@ -110,7 +116,6 @@
             });
         });
     </script>
-    <?php
-        include_once "footer.inc"?>;
+<?php include_once "footer.inc"?>;
 </body>
 </html>

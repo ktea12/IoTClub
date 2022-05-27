@@ -78,17 +78,18 @@
                 echo('<input type = "text" name = "lname" id = "lname" maxlength = "30" pattern="[A-Za-z- ]+"/><br>');
             echo('<label for="attempt_num">Attempt number</label>');
                 echo('<input type = "text" name = "attempt_num" id = "attempt_num" maxlength = "1" pattern="\d{1}"/><br>');
-            echo('<label for="score">Score</label>');
-                echo('<input type = "text" name = "score" id = "score" maxlength = "1" pattern="\d{1}"/><br>');
+                
             
             echo("<h3>Input Score</h3>");
+            echo("<p><strong>Score</strong></p>");
             
             echo('<label for="equal">Equal to: </label>');
                 echo('<input type="radio" name="compare" value="equal" id="equal"> <br/>');
             echo('<label for="greater">Greater than: </label>');
                 echo('<input type="radio" name="compare" value="greater" id="greater"> <br/>');
             echo('<label for="less">Less than: </label>');
-                echo('<input type="radio" name="compare" value="less" id="less"> <br/>');
+                echo('<input type="radio" name="compare" value="less" id="less">');
+            echo('<input type = "text" name = "score" id = "score" maxlength = "1" pattern="\d{1}"/><br>');
 
         echo("</p>");
         echo("</fieldset>");
@@ -120,7 +121,7 @@
                 $query = "SELECT A.AttemptID, S.StudentID, S.FirstName, S.LastName, A.Attemptdate_time, A.NumberofAttempts, A.Score FROM Attempts A INNER JOIN StudentInfo S ON A.StudentID=S.StudentID WHERE S.StudentID like '%$studentid%' AND S.FirstName LIKE '%$fname%' AND S.LastName LIKE '%$lname%' AND A.NumberofAttempts LIKE '%$attempt_num%' AND A.Score LIKE '%$score%'; ";
             }
             else {
-                $query = "SELECT A.AttemptID, S.StudentID, S.FirstName, S.LastName, A.Attemptdate_time, A.NumberofAttempts, A.Score FROM Attempts A INNER JOIN StudentInfo S ON A.StudentID=S.StudentID WHERE S.StudentID like '%$studentid%' AND S.FirstName LIKE '%$fname%' AND S.LastName LIKE '%$lname%' AND A.NumberofAttempts LIKE '%$attempt_num%' AND A.Score > 0 ";
+                $query = "SELECT A.AttemptID, S.StudentID, S.FirstName, S.LastName, A.Attemptdate_time, A.NumberofAttempts, A.Score FROM Attempts A INNER JOIN StudentInfo S ON A.StudentID=S.StudentID WHERE S.StudentID like '%$studentid%' AND S.FirstName LIKE '%$fname%' AND S.LastName LIKE '%$lname%' AND A.NumberofAttempts LIKE '%$attempt_num%' AND A.Score > -1 ";
             }
         }
 
