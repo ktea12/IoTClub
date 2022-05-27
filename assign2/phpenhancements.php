@@ -39,7 +39,7 @@
     <section class="container-fluid px-100">
         <div class="row align-items-center content">
             <div class="col-md-5 order-2 order-md-1 blurb2">
-                <img src="images/login.png" alt="Login">
+                <img src="images/login.png" alt="Login" height=300 width= 450>
               </div>
               <div class="col-md-7 text-center order-1 order-md-2">
                 <div class="row justify-content-center">
