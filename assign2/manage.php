@@ -81,13 +81,13 @@
                 
             
             echo("<h3>Input Score</h3>");
-            echo('<p><strong>Score</strong> 
-              <input type = "text" name = "score" id = "score" maxlength = "1" pattern="\d{1}"/> </p>');
+            echo("<strong>Score</strong>") ;
+              echo ('<input type = "text" name = "score" id = "score" maxlength = "1" pattern="\d{1}"/> </p>');
             
             echo('<label for="equal">Equal to: </label>');
-                echo('<input type="radio" name="compare" value="equal" id="equal"> <br/>');
+                echo('<input type="radio" name="compare" value="equal" id="equal">');
             echo('<label for="greater">Greater than: </label>');
-                echo('<input type="radio" name="compare" value="greater" id="greater"> <br/>');
+                echo('<input type="radio" name="compare" value="greater" id="greater">');
             echo('<label for="less">Less than: </label>');
                 echo('<input type="radio" name="compare" value="less" id="less">');
             
