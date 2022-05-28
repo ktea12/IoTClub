@@ -138,7 +138,7 @@
                           FROM Attempts A 
                           INNER JOIN StudentInfo S 
                           ON A.StudentID=S.StudentID 
-                          WHERE S.StudentID like '%$studentid%' AND S.FirstName LIKE '%$fname%' AND S.LastName LIKE '%$lname%' AND A.NumberofAttempts LIKE '%$attempt_num%' AND A.Score > -1 ";
+                          WHERE S.StudentID like '%$studentid%' AND S.FirstName LIKE '%$fname%' AND S.LastName LIKE '%$lname%' AND A.NumberofAttempts LIKE '%$attempt_num%' AND A.Score > 0 ";
             }
         }
 
