@@ -21,6 +21,7 @@
 
 <?php
     error_reporting (E_ALL ^ E_NOTICE);
+    error_reporting(E_ERROR | E_PARSE);
 
     $signed_in = false;
     $input_username = "";
@@ -79,7 +80,9 @@
                 echo('<input type = "text" name = "attempt_num" id = "attempt_num" maxlength = "1" pattern="\d{1}"/><br>');
                 
             
-            echo("<p><strong>Score</strong></p>");
+            echo("<h3>Input Score</h3>");
+            echo("<strong>Score</strong>") ;
+              echo ('<input type = "text" name = "score" id = "score" maxlength = "1" pattern="\d{1}"/> </p>');
             
             echo('<label for="equal">Equal to: </label>');
                 echo('<input type="radio" name="compare" value="equal" id="equal">');
@@ -87,7 +90,7 @@
                 echo('<input type="radio" name="compare" value="greater" id="greater">');
             echo('<label for="less">Less than: </label>');
                 echo('<input type="radio" name="compare" value="less" id="less">');
-            echo('<input type = "text" name = "score" id = "score" maxlength = "1" pattern="\d{1}"/><br>');
+            
 
         echo("</p>");
         echo("</fieldset>");
@@ -110,16 +113,32 @@
             echo "<p>Connection Successful!</p>";
             $sql_table = "ATTEMPTS";
             if ($compare == "greater"){
-                $query = "SELECT A.AttemptID, S.StudentID, S.FirstName, S.LastName, A.Attemptdate_time, A.NumberofAttempts, A.Score FROM Attempts A INNER JOIN StudentInfo S ON A.StudentID=S.StudentID WHERE S.StudentID like '%$studentid%' AND S.FirstName LIKE '%$fname%' AND S.LastName LIKE '%$lname%' AND A.NumberofAttempts LIKE '%$attempt_num%' and A.Score > $score ";
+                $query = "SELECT A.AttemptID, S.StudentID, S.FirstName, S.LastName, A.Attemptdate_time, A.NumberofAttempts, A.Score
+                          FROM Attempts A 
+                          INNER JOIN StudentInfo S
+                           ON A.StudentID=S.StudentID 
+                          WHERE S.StudentID like '%$studentid%' AND S.FirstName LIKE '%$fname%' AND S.LastName LIKE '%$lname%' AND A.NumberofAttempts LIKE '%$attempt_num%' and A.Score > $score ";
             }
             elseif ($compare == "less"){
-                $query = "SELECT A.AttemptID, S.StudentID, S.FirstName, S.LastName, A.Attemptdate_time, A.NumberofAttempts, A.Score FROM Attempts A INNER JOIN StudentInfo S ON A.StudentID=S.StudentID WHERE S.StudentID like '%$studentid%' AND S.FirstName LIKE '%$fname%' AND S.LastName LIKE '%$lname%' AND A.NumberofAttempts LIKE '%$attempt_num%' and A.Score < $score ";
+                $query = "SELECT A.AttemptID, S.StudentID, S.FirstName, S.LastName, A.Attemptdate_time, A.NumberofAttempts, A.Score
+                          FROM Attempts A 
+                          INNER JOIN StudentInfo S 
+                          ON A.StudentID=S.StudentID 
+                          WHERE S.StudentID like '%$studentid%' AND S.FirstName LIKE '%$fname%' AND S.LastName LIKE '%$lname%' AND A.NumberofAttempts LIKE '%$attempt_num%' and A.Score < $score ";
             }
             elseif ($compare == "equal"){
-                $query = "SELECT A.AttemptID, S.StudentID, S.FirstName, S.LastName, A.Attemptdate_time, A.NumberofAttempts, A.Score FROM Attempts A INNER JOIN StudentInfo S ON A.StudentID=S.StudentID WHERE S.StudentID like '%$studentid%' AND S.FirstName LIKE '%$fname%' AND S.LastName LIKE '%$lname%' AND A.NumberofAttempts LIKE '%$attempt_num%' AND A.Score LIKE '%$score%'; ";
+                $query = "SELECT A.AttemptID, S.StudentID, S.FirstName, S.LastName, A.Attemptdate_time, A.NumberofAttempts, A.Score 
+                          FROM Attempts A 
+                          INNER JOIN StudentInfo S
+                          ON A.StudentID=S.StudentID 
+                          WHERE S.StudentID like '%$studentid%' AND S.FirstName LIKE '%$fname%' AND S.LastName LIKE '%$lname%' AND A.NumberofAttempts LIKE '%$attempt_num%' AND A.Score LIKE '%$score%'; ";
             }
             else {
-                $query = "SELECT A.AttemptID, S.StudentID, S.FirstName, S.LastName, A.Attemptdate_time, A.NumberofAttempts, A.Score FROM Attempts A INNER JOIN StudentInfo S ON A.StudentID=S.StudentID WHERE S.StudentID like '%$studentid%' AND S.FirstName LIKE '%$fname%' AND S.LastName LIKE '%$lname%' AND A.NumberofAttempts LIKE '%$attempt_num%' AND A.Score > -1 ";
+                $query = "SELECT A.AttemptID, S.StudentID, S.FirstName, S.LastName, A.Attemptdate_time, A.NumberofAttempts, A.Score 
+                          FROM Attempts A 
+                          INNER JOIN StudentInfo S 
+                          ON A.StudentID=S.StudentID 
+                          WHERE S.StudentID like '%$studentid%' AND S.FirstName LIKE '%$fname%' AND S.LastName LIKE '%$lname%' AND A.NumberofAttempts LIKE '%$attempt_num%' AND A.Score > 0 ";
             }
         }
 
@@ -133,13 +152,15 @@
             if ($record) {
                 echo "<p>Matching results:</p>";
                 echo "<table border='1'>";
-                echo "<tr><th>Student ID</th><th>First Name</th><th>Last Name</th><th>Attempt number</th><th>Score</th></tr>";
+                echo "<tr><th>Attempt ID </th><th>Student ID</th><th>First Name</th><th>Last Name</th><th>Attempt #</th><th>Score</th><th> AttemptDate_Time</th></tr>";
                 while ($record) {
-                    echo "<tr><td>{$record['StudentID']}</td>";
+                    echo "<tr><td>{$record['AttemptID']}</td>" ;
+                    echo "<td>{$record['StudentID']}</td>";
                     echo "<td>{$record['FirstName']}</td>";
                     echo "<td>{$record['LastName']}</td>";
                     echo "<td>{$record['NumberofAttempts']}</td>";
-                    echo "<td>{$record['Score']}</td</tr>";
+                    echo "<td>{$record['Score']}</td>";
+                    echo "<td>{$record['Attemptdate_time']}</td</tr>" ;
                     $record = mysqli_fetch_assoc ($result);
                 }
                 echo "</table>";
@@ -150,8 +171,82 @@
             }
         
         }
-        mysqli_close($conn);
+            
+        // if ($_POST['action'] == 'Delete') {
+        $query_delete = " DELETE Attempts 
+                          FROM   Attempts 
+                          WHERE  StudentID = 1223312313 ";
+      
+        $result_delete = mysqli_query($conn, $query_delete) ;
+        if (!$result_delete){
+            echo "<p> Query failed. </p>" ;
         }
+        else {
+           $query_delete_student= " DELETE StudentInfo 
+                          FROM   StudentInfo
+                          WHERE  StudentID = 1223312313 " ;
+           $result_delete_student = mysqli_query($conn, $query_delete_student) ;
+
+             if(!$result_delete_student) {
+                echo "<p> Query Failed. <p> " ;
+             }
+             else {
+                
+                $record = mysqli_fetch_assoc($result_delete_student);   
+                if ($record){         
+                echo "<p>Deleted selected Records: </p>";
+                echo "<table border='1'>";
+                echo "<tr><th>Attempt ID </th><th>Student ID</th><th>First Name</th><th>Last Name</th><th>Attempt # (Descending)</th><th>Score</th><th> AttemptDate_Time</th></tr>";
+                while ($record) {
+                    echo "<tr><td>{$record['AttemptID']}</td>" ;
+                    echo "<td>{$record['StudentID']}</td>";
+                    echo "<td>{$record['FirstName']}</td>";
+                    echo "<td>{$record['LastName']}</td>";
+                    echo "<td>{$record['NumberofAttempts']}</td>";
+                    echo "<td>{$record['Score']}</td>";
+                    echo "<td>{$record['Attemptdate_time']}</td</tr>" ;
+                    $record = mysqli_fetch_assoc ($result_delete_student);
+                }
+                echo "</table>";
+                mysqli_free_result($result_delete_student);
+               }
+            }
+             
+            
+        }
+
+      $query_update= "UPDATE StudentInfo, Attempts
+                      SET Attempts.Score = '$score'
+                      WHERE StudentInfo.StudentID = '$studentid' AND Attempts.NumberofAttempts = '$attempt_num' " ;
+                    
+        $result = mysqli_query($conn, $query_update) ;
+        if (!$result){
+            echo "<p> Query failed. </p>" ;
+        }
+        else {    
+            $record = mysqli_fetch_assoc($result);
+            if ($record) {
+                echo "<p>You have updated the following record. </p>"; 
+                echo "<table border='1'>";
+                echo "<tr><th>Attempt ID </th><th>Student ID</th><th>First Name</th><th>Last Name</th><th>Attempt # (Descending)</th><th>Score</th><th> AttemptDate_Time</th></tr>";
+                while ($record) {
+                    echo "<tr><td>{$record['AttemptID']}</td>" ;
+                    echo "<td>{$record['StudentID']}</td>";
+                    echo "<td>{$record['FirstName']}</td>";
+                    echo "<td>{$record['LastName']}</td>";
+                    echo "<td>{$record['NumberofAttempts']}</td>";
+                    echo "<td>{$record['Score']}</td>";
+                    echo "<td>{$record['Attemptdate_time']}</td</tr>" ;
+                    $record = mysqli_fetch_assoc ($result);
+                }
+                echo "</table>";
+                mysqli_free_result($result);
+            }
+            
+        }
+
+        mysqli_close($conn);
+    }
         else {
             echo "<p>Connection Failed</p>";
         }

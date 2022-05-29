@@ -32,14 +32,14 @@
 
 <body>
     <?php
-        $page = "enhancements";
+        $page = "enhancements2";
         include_once ("header.inc");
     ?>
 <div class="div1">   
     <section class="container-fluid px-100">
         <div class="row align-items-center content">
             <div class="col-md-5 order-2 order-md-1 blurb2">
-                <img src="images/login.png" alt="Login">
+                <img src="images/login.png" alt="Login" height=300 width= 450>
               </div>
               <div class="col-md-7 text-center order-1 order-md-2">
                 <div class="row justify-content-center">
@@ -52,6 +52,12 @@
                         </p>
                         <p>
                         If the username and password are correct, the user will be signed in and will be able to search and edit the database. If the username and password are incorrect, the user will not be signed in and will display a message saying incorrect details and connection failed.
+                        </p>
+                        <p><strong>Below are the admin login details.</strong></p>
+                        <p>Username: cos10026</p>
+                        <p>Password: iotclub22</p>
+                        <p>
+                            <a href="manage.php">Manager Page</a>
                         </p>
                     </div>
                 </div>
@@ -81,6 +87,9 @@
                         </p>
 
                         <p>We normalized the table into 2. Which consists of Attempts's table and StudenInfo table.</p>
+                        <p>
+                            <a href="manage.php">Manager Page</a>
+                        </p>
                     </div>
                 </div>
             </div>
