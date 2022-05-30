@@ -96,7 +96,7 @@
             </div>
         </div>
         <div id = "a">
-            <a href="https://www.youtube.com/watch?v=SsadMqIH7go&t=4s">Website explanation video</a>
+            <a href="https://www.youtube.com/watch?v=SsadMqIH7go">Website explanation video</a>
         </div>
     </section>
 </div>
