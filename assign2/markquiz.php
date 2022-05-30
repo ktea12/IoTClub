@@ -1,3 +1,5 @@
+<!-- This page validates quiz data. If quiz data is valid, it marks and uploads this data to the SQL server.-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
