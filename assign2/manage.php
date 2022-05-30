@@ -191,11 +191,11 @@
         if($result_delete_student) {
                 
           echo "<p> DELETE SUCCESSFUL </p>" ;
+          echo "<p> The record with Student ID: $studentid has been deleted </p>" ;
          $select_query = "SELECT A.AttemptID, S.StudentID, S.FirstName, S.LastName, A.Attemptdate_time, A.NumberofAttempts, A.Score 
                           FROM Attempts A 
                           INNER JOIN StudentInfo S
-                          ON A.StudentID=S.StudentID 
-                          WHERE S.StudentID like '%$studentid%' " ;
+                          ON A.StudentID=S.StudentID " ;
 
          $result_select = mysqli_query($conn, $select_query) ;
          if ($result_select) {
