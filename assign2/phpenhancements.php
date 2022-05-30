@@ -39,7 +39,7 @@
     <section class="container-fluid px-100">
         <div class="row align-items-center content">
             <div class="col-md-5 order-2 order-md-1 blurb2">
-                <img src="images/login.png" alt="Login" height=300 width= 450>
+                <img src="images/login.png" alt="Login" class = "enhacement_images">
               </div>
               <div class="col-md-7 text-center order-1 order-md-2">
                 <div class="row justify-content-center">
@@ -65,7 +65,7 @@
         </div>
         <div class="row align-items-center content">
             <div class="col-md-6 blurb2">
-                <img src="images/database.jpg" alt="Database">
+                <img src="images/database.jpg" alt="Database" class = "enhacement_images">
               </div>
             <div class="col-md-6 text-center">
                 <div class="row justify-content-center">
@@ -95,7 +95,7 @@
             </div>
         </div>
         <div id = "a">
-            <a href="https://www.youtube.com/watch?v=SsadMqIH7go&t=4s">Website explanation video</a>
+            <a href="https://www.youtube.com/watch?v=sfbZnMBQch0">Website explanation video</a>
         </div>
     </section>
 </div>
