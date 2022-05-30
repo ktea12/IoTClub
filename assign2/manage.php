@@ -106,12 +106,13 @@
             $studentid = trim(htmlspecialchars($_POST["studentid"]));
             $fname = trim(htmlspecialchars($_POST["fname"]));
             $lname = trim(htmlspecialchars($_POST["lname"]));
-            $attempt_num = trim(htmlspecialchars($_POST["attempt_num"]));
+        $attempt_num = trim(htmlspecialchars($_POST["attempt_num"]));
             $score = intval(trim(htmlspecialchars($_POST["score"])));
             $compare = trim(htmlspecialchars($_POST["compare"]));
 
             echo "<p>Connection Successful!</p>";
             $sql_table = "ATTEMPTS";
+            if ($_POST['action'] == 'Search') {
             if ($compare == "greater"){
                 $query = "SELECT A.AttemptID, S.StudentID, S.FirstName, S.LastName, A.Attemptdate_time, A.NumberofAttempts, A.Score
                           FROM Attempts A 
@@ -138,9 +139,9 @@
                           FROM Attempts A 
                           INNER JOIN StudentInfo S 
                           ON A.StudentID=S.StudentID 
-                          WHERE S.StudentID like '%$studentid%' AND S.FirstName LIKE '%$fname%' AND S.LastName LIKE '%$lname%' AND A.NumberofAttempts LIKE '%$attempt_num%' AND A.Score > 0 ";
+                          WHERE S.StudentID like '%$studentid%' AND S.FirstName LIKE '%$fname%' AND S.LastName LIKE '%$lname%' AND A.NumberofAttempts LIKE '%$attempt_num%' AND A.Score > -1 ";
             }
-        }
+        
 
         $result = mysqli_query($conn, $query);
         if (!$result){
@@ -152,7 +153,7 @@
             if ($record) {
                 echo "<p>Matching results:</p>";
                 echo "<table border='1'>";
-                echo "<tr><th>Attempt ID </th><th>Student ID</th><th>First Name</th><th>Last Name</th><th>Attempt #</th><th>Score</th><th> AttemptDate_Time</th></tr>";
+                echo "<tr><th>Attempt ID </th><th>Student ID</th><th>First Name</th><th>Last Name</th><th>Attempt # (Descending)</th><th>Score</th><th> AttemptDate_Time</th></tr>";
                 while ($record) {
                     echo "<tr><td>{$record['AttemptID']}</td>" ;
                     echo "<td>{$record['StudentID']}</td>";
@@ -171,30 +172,37 @@
             }
         
         }
+    }
+    
             
-        // if ($_POST['action'] == 'Delete') {
-        $query_delete = " DELETE Attempts 
+        elseif ($_POST['action'] == 'Delete') {
+        $query_delete = " DELETE  
                           FROM   Attempts 
-                          WHERE  StudentID = 1223312313 ";
+                          WHERE  StudentID = '$studentid' ";
       
         $result_delete = mysqli_query($conn, $query_delete) ;
-        if (!$result_delete){
-            echo "<p> Query failed. </p>" ;
-        }
-        else {
-           $query_delete_student= " DELETE StudentInfo 
-                          FROM   StudentInfo
-                          WHERE  StudentID = 1223312313 " ;
-           $result_delete_student = mysqli_query($conn, $query_delete_student) ;
+        if ($result_delete){
+        
+        $query_delete_student= " DELETE 
+                                 FROM   StudentInfo
+                                 WHERE  StudentID = '$studentid' " ;
+        $result_delete_student = mysqli_query($conn, $query_delete_student) ;
 
-             if(!$result_delete_student) {
-                echo "<p> Query Failed. <p> " ;
-             }
-             else {
+        if($result_delete_student) {
                 
-                $record = mysqli_fetch_assoc($result_delete_student);   
-                if ($record){         
-                echo "<p>Deleted selected Records: </p>";
+          echo "<p> DELETE SUCCESSFUL </p>" ;
+         $select_query = "SELECT A.AttemptID, S.StudentID, S.FirstName, S.LastName, A.Attemptdate_time, A.NumberofAttempts, A.Score 
+                          FROM Attempts A 
+                          INNER JOIN StudentInfo S
+                          ON A.StudentID=S.StudentID 
+                          WHERE S.StudentID like '%$studentid%' " ;
+
+         $result_select = mysqli_query($conn, $select_query) ;
+         if ($result_select) {
+           
+         $record = mysqli_fetch_assoc($result_select);   
+         if ($record){         
+              
                 echo "<table border='1'>";
                 echo "<tr><th>Attempt ID </th><th>Student ID</th><th>First Name</th><th>Last Name</th><th>Attempt # (Descending)</th><th>Score</th><th> AttemptDate_Time</th></tr>";
                 while ($record) {
@@ -205,28 +213,44 @@
                     echo "<td>{$record['NumberofAttempts']}</td>";
                     echo "<td>{$record['Score']}</td>";
                     echo "<td>{$record['Attemptdate_time']}</td</tr>" ;
-                    $record = mysqli_fetch_assoc ($result_delete_student);
+                    $record = mysqli_fetch_assoc ($result_select);
                 }
                 echo "</table>";
-                mysqli_free_result($result_delete_student);
+                mysqli_free_result($result_select);
                }
             }
+        }
              
             
         }
-
-      $query_update= "UPDATE StudentInfo, Attempts
-                      SET Attempts.Score = '$score'
-                      WHERE StudentInfo.StudentID = '$studentid' AND Attempts.NumberofAttempts = '$attempt_num' " ;
-                    
-        $result = mysqli_query($conn, $query_update) ;
-        if (!$result){
-            echo "<p> Query failed. </p>" ;
+        else {
+            echo "<p> DELETE UNSUCCESSFUL </p>" ;
         }
-        else {    
-            $record = mysqli_fetch_assoc($result);
+       
+
+    }
+
+    elseif ($_POST['action'] == 'Update') {
+      $query_update= "UPDATE Attempts 
+                      SET Score = $score
+                      WHERE StudentID = $studentid AND NumberofAttempts = $attempt_num " ;
+      
+      $result = mysqli_query($conn, $query_update) ;
+      if ($result){
+          
+          echo "<p> Update successful. </p>" ;
+          $select_update = "SELECT A.AttemptID, S.StudentID, S.FirstName, S.LastName, A.Attemptdate_time, A.NumberofAttempts, A.Score 
+                            FROM Attempts A 
+                            INNER JOIN StudentInfo S
+                            ON A.StudentID=S.StudentID 
+                            WHERE A.StudentID like '%$studentid%' AND A.NumberofAttempts = '$attempt_num' " ;
+         $result_select_update = mysqli_query($conn,$select_update ) ;
+        
+         if ($result_select_update) {
+           
+            $record = mysqli_fetch_assoc($result_select_update);
             if ($record) {
-                echo "<p>You have updated the following record. </p>"; 
+                echo "<p> The following record has been updated. <p>" ;
                 echo "<table border='1'>";
                 echo "<tr><th>Attempt ID </th><th>Student ID</th><th>First Name</th><th>Last Name</th><th>Attempt # (Descending)</th><th>Score</th><th> AttemptDate_Time</th></tr>";
                 while ($record) {
@@ -236,20 +260,31 @@
                     echo "<td>{$record['LastName']}</td>";
                     echo "<td>{$record['NumberofAttempts']}</td>";
                     echo "<td>{$record['Score']}</td>";
-                    echo "<td>{$record['Attemptdate_time']}</td</tr>" ;
-                    $record = mysqli_fetch_assoc ($result);
+                    echo "<td>{$record['Attemptdate_time']}</td</tr>";
+                    $record = mysqli_fetch_assoc ($result_select_update);
                 }
+               
                 echo "</table>";
-                mysqli_free_result($result);
+                mysqli_free_result($result_select_update);
             }
+        }
             
         }
-
-        mysqli_close($conn);
+        else {
+            echo "<p> UPDATE UNSUCCESSFUL </p>" ;
+        }
     }
+
+   
         else {
             echo "<p>Connection Failed</p>";
         }
+        
+        mysqli_close($conn);
+    }
+    }
+
+
     
 ?>
 
