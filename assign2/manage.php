@@ -1,3 +1,6 @@
+<!---The fourth page of the website named Manage page is used by the admin who logins using a username and password and then gets access to the database. Further, search, delete and update functions can be done on the data in the tables.    --->
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -112,7 +115,11 @@
 
             echo "<p>Connection Successful!</p>";
             $sql_table = "ATTEMPTS";
+
+            #Checking if Search option is clicked 
             if ($_POST['action'] == 'Search') {
+
+            #Creating values for different radio buttons of score options 
             if ($compare == "greater"){
                 $query = "SELECT A.AttemptID, S.StudentID, S.FirstName, S.LastName, A.Attemptdate_time, A.NumberofAttempts, A.Score
                           FROM Attempts A 
@@ -174,8 +181,10 @@
         }
     }
     
-            
+        #Checking if delete option is clicked
         elseif ($_POST['action'] == 'Delete') {
+
+        #Delete Query
         $query_delete = " DELETE  
                           FROM   Attempts 
                           WHERE  StudentID = '$studentid' ";
@@ -192,6 +201,8 @@
                 
           echo "<p> DELETE SUCCESSFUL </p>" ;
           echo "<p> The record with Student ID: $studentid has been deleted </p>" ;
+
+          #Creating a table after delete
          $select_query = "SELECT A.AttemptID, S.StudentID, S.FirstName, S.LastName, A.Attemptdate_time, A.NumberofAttempts, A.Score 
                           FROM Attempts A 
                           INNER JOIN StudentInfo S
@@ -229,8 +240,11 @@
        
 
     }
-
+     
+    #checking if update option is clicked 
     elseif ($_POST['action'] == 'Update') {
+
+        #Update Query
       $query_update= "UPDATE Attempts 
                       SET Score = $score
                       WHERE StudentID = $studentid AND NumberofAttempts = $attempt_num " ;
@@ -249,6 +263,8 @@
          if ($result_select_update) {
            
             $record = mysqli_fetch_assoc($result_select_update);
+
+            #Creating a table after update 
             if ($record) {
                 echo "<p> The following record has been updated. <p>" ;
                 echo "<table border='1'>";
@@ -281,10 +297,7 @@
         mysqli_close($conn);
       }
     }
-    // else {
-    //     echo "<p>For Connection</p>";
-    // }
-
+    
 
     
 ?>

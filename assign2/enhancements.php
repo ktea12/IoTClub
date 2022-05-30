@@ -1,4 +1,4 @@
-<!---This is the fourth page of the website named as "Enhancements". There have a list of enhancements applied on other pages like animations, transitions and bootstrap which have been mentioned in detail here.-->
+<!---This is the fifth page of the website named as "Enhancements". There have a list of enhancements applied on other pages like animations, transitions and bootstrap which have been mentioned in detail here.-->
 
 <!DOCTYPE html>
 <html lang="en">
