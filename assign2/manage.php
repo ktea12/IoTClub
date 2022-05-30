@@ -168,7 +168,7 @@
                 mysqli_free_result($result);
             }
             else {
-                echo("<p>No matching results.</p>");
+                echo("<p>NO MATCHING RESUL</p>");
             }
         
         }
@@ -276,12 +276,13 @@
     }
 
    
-        else {
-            echo "<p>Connection Failed</p>";
-        }
+        
         
         mysqli_close($conn);
+      }
     }
+    else {
+        echo "<p>Connection Failed</p>";
     }
 
 
