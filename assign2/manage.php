@@ -281,9 +281,9 @@
         mysqli_close($conn);
       }
     }
-    else {
-        echo "<p>Connection Failed</p>";
-    }
+    // else {
+    //     echo "<p>For Connection</p>";
+    // }
 
 
     
