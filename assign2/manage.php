@@ -168,7 +168,7 @@
                 mysqli_free_result($result);
             }
             else {
-                echo("<p>NO MATCHING RESUL</p>");
+                echo("<p>NO MATCHING RESULTS</p>");
             }
         
         }

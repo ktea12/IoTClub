@@ -37,32 +37,32 @@
     $device = sanities_input($_POST["device"]);
 
     $valid = true; // Used to check if program should continue - no if bad input
-    if ((!isset ($FirstName) or $FirstName == "") or (!isset ($LastName) or $LastName == "") or (!isset ($StudentID) or $StudentID == "") or (!preg_match("/^[a-zA-Z- ]{1,30}$/",$FirstName)) or (!preg_match("/^[a-zA-Z- ]{1,30}$/",$LastName)) or (!preg_match("/^[0-9]\d{7}|\d{10}$/",$StudentID))) {
+    if ((!isset ($FirstName) or $FirstName == "") or (!isset ($LastName) or $LastName == "") or (!isset ($StudentID) or $StudentID == "") or (!preg_match("/^[a-zA-Z- ]{1,30}$/",$FirstName)) or (!preg_match("/^[a-zA-Z- ]{1,30}$/",$LastName)) or (strlen($StudentID) !=7 and strlen($StudentID) !=10)) {
         echo "<p>Error with student details:</p>";
 
         //  Specific error messages   
         if ($FirstName =="")  {
-            echo "<p> You must enter your first name. </p>";
+            echo "<p>You must enter your first name. </p>";
         }
         else if  (!preg_match("/^[a-zA-Z- ]{1,30}$/",$FirstName))  {
-            echo "<p> Only alpha letters, hyphen and space allowed in your first name.</p>";
+            echo "<p>Only alpha letters, hyphen and space allowed in your first name.</p>";
         }
 
         if ($LastName =="")  {
-            echo "<p> You must enter your last name. </p>";
+            echo "<p>You must enter your last name. </p>";
         }
         else if  (!preg_match("/^[a-zA-Z- ]{1,30}$/",$LastName))  {
-            echo "<p> Only alpha letters, hyphen and space allowed in your last name.</p>";
+            echo "<p>Only alpha letters, hyphen and space allowed in your last name.</p>";
         }
     
         if ($StudentID =="")  {
             echo "<p> You must enter your Student ID. </p>";
         }
         else if  (!preg_match("/^[0-9]\d{7}|\d{10}$/",$StudentID))  {
-            echo "<p> Only numbers allowed in your student ID within a range of 7 to 10 numbers. </p>";
+            echo "<p>Student ID must be 7 or 10 digits.</p>";
         }
 
-        echo "<p>Please refer back to the <a href='quiz.php'>Quiz page .</a>  </p>" ;
+        echo "<p>Please refer back to the <a href='quiz.php'>Quiz page.</a>  </p>" ;
         $valid = false;
     }
 
