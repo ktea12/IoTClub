@@ -32,7 +32,7 @@
 
 
 <body>
-<?php
+    <?php
         $page = "enhancements";
         include_once ("header.inc");
     ?>
@@ -116,6 +116,6 @@
             });
         });
     </script>
-<?php include_once "footer.inc"?>;
 </body>
+<?php include_once "footer.inc"?>;
 </html>

@@ -298,4 +298,3 @@
         include_once "footer.inc";
     ?>
 </div>
-</body
