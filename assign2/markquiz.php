@@ -192,9 +192,12 @@ if ($valid){
                 echo "<p>Welcome $FirstName $LastName! <br/>
                 Student ID: $StudentID <br/>
                 You have achieved a score of $score <br/>
-                You have ", abs(2 - $attempt) , " attempt(s) remaining for this quiz</p>";
+                You have ", abs(2 - $attempt) , " attempt(s) remaining for this quiz </p>";
+
             }
-        
+           if (abs(2 - $attempt)==1){
+            echo "<p> Please refer back to the <a href='quiz.php'> QUIZ PAGE </a> for another attempt. </p>"; 
+           }
                 }
             }
         }
