@@ -71,7 +71,7 @@
                 <div class="row justify-content-center">
                     <div class="blurb">
                         <!--<div class="col-10 col-lg-8 blurb mb-5 mb-md-0">-->
-                        <h2>Database</h2>
+                        <h2>Normalizing the Database</h2>
                         <p>Primary key<br>
 
                             A field in the table that uniquely identify each row/record in a databse table.
