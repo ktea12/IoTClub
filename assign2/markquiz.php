@@ -37,7 +37,7 @@
     $device = sanities_input($_POST["device"]);
 
     $valid = true; // Used to check if program should continue - no if bad input
-    if ((!isset ($FirstName) or $FirstName == "") or (!isset ($LastName) or $LastName == "") or (!isset ($StudentID) or $StudentID == "")) {
+    if ((!isset ($FirstName) or $FirstName == "") or (!isset ($LastName) or $LastName == "") or (!isset ($StudentID) or $StudentID == "") or (!preg_match("/^[a-zA-Z- ]{1,30}$/",$FirstName)) or (!preg_match("/^[a-zA-Z- ]{1,30}$/",$LastName)) or (!preg_match("/^[0-9]\d{7}|\d{10}$/",$StudentID))) {
         echo "<p>Error with student details:</p>";
 
         //  Specific error messages   
