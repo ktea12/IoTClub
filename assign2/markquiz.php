@@ -33,7 +33,7 @@
 <?php
     $FirstName = sanities_input($_POST["FirstName"]);
     $LastName = sanities_input($_POST["LastName"]);
-    $StudentID = sanities_input($_POST["StudentID"]);
+    $StudentID = strval(sanities_input($_POST["StudentID"]));
     $device = sanities_input($_POST["device"]);
 
     $valid = true; // Used to check if program should continue - no if bad input
@@ -140,9 +140,9 @@ if ($valid){
         if ($score > 0) {
             // Creating table if does not exist as a database,
             $query_student = " CREATE TABLE IF NOT EXISTS `StudentInfo` (
-                `StudentID` int(8) PRIMARY KEY,
-                `FirstName` varchar(20),
-                `LastName` varchar(20)
+                `StudentID` int(10) PRIMARY KEY,
+                `FirstName` varchar(30),
+                `LastName` varchar(30)
                  ); " ;
             
             $result_student = mysqli_query($conn, $query_student) ;
@@ -150,12 +150,13 @@ if ($valid){
             if ($result_student) {
                 $query = " CREATE TABLE IF NOT EXISTS`Attempts`(
                 `AttemptID` INT(11) PRIMARY KEY AUTO_INCREMENT,
-                `StudentID` INT(8),
+                `StudentID` INT(10),
                  FOREIGN KEY (StudentID) REFERENCES `StudentInfo` (StudentID) ,
                 `Attemptdate_time` DATETIME,
-                `NumberofAttempts` TINYINT(4),
-                `Score` INT(11)
+                `NumberofAttempts` TINYINT(1),
+                `Score` TINYINT(1)
             ); " ;
+            }
 
         
             $results = mysqli_query($conn, $query);
@@ -174,13 +175,16 @@ if ($valid){
                    echo ("<p>$answer_feedback</p>");
                   
                    
-                $query_new = "SELECT * FROM StudentInfo WHERE studentid=$StudentID "   ;
-                $check =mysqli_query($conn, $query_new) ;
+                    $query_new = "SELECT * FROM StudentInfo WHERE studentid=$StudentID "   ;
+                    $check =mysqli_query($conn, $query_new) ;
 
-                if (mysqli_num_rows($check)==0) {
-                $sql_student = "INSERT INTO StudentInfo (firstname, lastname, studentid) " .
-                "VALUES ('$FirstName','$LastName', $StudentID) ";
-                $check1 = mysqli_query($conn,$sql_student) ;
+                    if (mysqli_num_rows($check)==0) {
+                    $sql_student = "INSERT INTO StudentInfo (firstname, lastname, studentid) " .
+                    "VALUES ('$FirstName','$LastName', $StudentID) ";
+                    $check1 = mysqli_query($conn,$sql_student) ;
+                    if ($attempt == 1) {
+                        echo "<p> Please refer back to the <a href='quiz.php'> QUIZ PAGE </a> for another attempt. </p>";
+                    } 
                 }
                 
                 $sql = "INSERT INTO Attempts (attemptdate_time, studentid, NumberofAttempts, score) " .
@@ -188,23 +192,20 @@ if ($valid){
 
                 
                 if (mysqli_query($conn, $sql) ) {
-            
-                echo "<p>Welcome $FirstName $LastName! <br/>
-                Student ID: $StudentID <br/>
-                You have achieved a score of $score <br/>
-                You have ", abs(2 - $attempt) , " attempt(s) remaining for this quiz </p>";
+                    echo "<p>Welcome $FirstName $LastName! <br/>
+                    Student ID: $StudentID <br/>
+                    You have achieved a score of $score <br/>
+                    You have ", 2 - $attempt , " attempt(s) remaining for this quiz </p>";
+                }
 
             }
-           if (abs(2 - $attempt)==1){
-            echo "<p> Please refer back to the <a href='quiz.php'> QUIZ PAGE </a> for another attempt. </p>"; 
-           }
-                }
-            }
+               
+            
         }
             mysqli_close($conn);
 
         }
-        }
+        
         else {
             echo"<p>Database not created:
             Score must exceed 0.</p>";
@@ -213,8 +214,8 @@ if ($valid){
     else{
         echo"<p>Please answer ALL questions.</p>";
     }
+}
     
-
 ?>
 </div>
 <?php include_once "footer.inc"?>;
